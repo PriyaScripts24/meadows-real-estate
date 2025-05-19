@@ -34,16 +34,16 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-20 text-xl items-center">
-        <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">About</a>
-        <a href="#" class="nav-link">Property</a>
-        <a href="#" class="nav-link">News</a>
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#amenities" class="nav-link">Property</a>
+        <a href="#location" class="nav-link">News</a>
+        <a href="#counter" class="nav-link">Contact</a>
         <a
           href="#"
-          class="bg-[#FF5722] text-white text-sm font-semibold px-6 py-3 rounded hover:bg-[#e64a19]"
+          class="bg-[#123B78] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#e64a19]"
         >
-          Call Now
+          📞 Call Now
         </a>
       </nav>
     </div>
@@ -60,9 +60,9 @@
       <a href="#" class="block nav-link text-white">Contact</a>
       <a
         href="#"
-        class="block text-center bg-[#FF5722] text-white font-semibold px-4 py-2 rounded hover:bg-[#e64a19]"
+        class="block text-center bg-[#123B78] text-white font-semibold px-4 py-2 rounded hover:bg-[#e64a19]"
       >
-        Call Now
+        📞 Call Now
       </a>
     </div>
   </header>
