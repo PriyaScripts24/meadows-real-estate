@@ -358,9 +358,10 @@
           data-aos="fade-right"
           data-aos-delay="200"
         >
-          <div id="type" class="max-w-full overflow-hidden">
+          <div id="type" class="">
             <h2 class="text-xl md:text-5xl font-bold leading-tight">
-              19+ years of experience in creating exceptional living spaces
+              19+ years of experience <br />in creating exceptional living
+              spaces
             </h2>
           </div>
 
@@ -474,14 +475,6 @@ const animateCounter = (target, refVar, duration = 1000) => {
 };
 
 onMounted(() => {
-  setInterval(updateText, 4000);
-});
-
-onMounted(() => {
-  setInterval(updateText, 4000);
-});
-
-onMounted(() => {
   AOS.init();
   animateCounter(20, years, 800); // 800ms duration
   animateCounter(100, projects, 800);
@@ -518,7 +511,7 @@ const features = [
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 2s steps(20) infinite alternate;
+  animation: typing 2s steps(30) infinite alternate;
 }
 
 @keyframes typing {
@@ -526,7 +519,7 @@ const features = [
     width: 0ch;
   }
   to {
-    width: 20ch;
+    width: 30ch;
   }
 }
 </style>
