@@ -6,7 +6,7 @@
         <img
           src="/public/Meadows Logo.png"
           alt="logo"
-          class="md:w-[220px] md:h-[90px] w-[150px] h-[60px]"
+          class="md:w-[170px] w-[120px]"
         />
       </div>
 
@@ -41,9 +41,9 @@
         <a href="#counter" class="nav-link">Contact</a>
         <a
           href="#"
-          class="bg-[#3E2D7E] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#E92A7B]"
+          class="bg-[#E92A7B] text-white text-sm font-semibold shadow-lg px-6 py-3 rounded-lg hover:bg-[#EE6FA8]"
         >
-          📞 Call Now
+          Call Now
         </a>
       </nav>
     </div>

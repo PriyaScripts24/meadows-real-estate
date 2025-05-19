@@ -21,7 +21,11 @@
         <div
           class="w-full md:w-1/2 text-center md:text-left md:-mt-[460px] mt-10"
         >
-          <div class="flex flex-col gap-4">
+          <div
+            class="flex flex-col gap-4"
+            data-aos="flip-left"
+            data-aos-delay="200"
+          >
             <h2 class="text-[#3E2D7E] text-3xl md:text-4xl font-semibold">
               Presenting Modern
             </h2>
@@ -31,13 +35,13 @@
             <img
               src="/Meadows Logo.png"
               alt="logo"
-              class="mx-auto md:mx-0 w-[150px] h-[60px] md:w-[220px] md:h-[90px]"
+              class="mx-auto md:mx-0 w-[120px] md:w-[170px]"
             />
           </div>
         </div>
 
         <!-- Right Form Box -->
-        <div class="w-full md:w-2/5">
+        <div class="w-full md:w-2/5" data-aos="fade-left" data-aos-delay="200">
           <div
             class="w-full max-w-md bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-10 mx-auto"
           >
@@ -120,21 +124,23 @@
 
     <section
       id="about"
-      class="relative py-16 px-4 bg-no-repeat bg-cover bg-center md:bg-fixed"
+      class="relative py-16 px-4 bg-no-repeat bg-cover bg-center md:bg-fixed md:-mt-0 -mt-20"
       :class="{ 'bg-none': screenWidth < 768 }"
       style="background-image: url('/about banner.png')"
     >
       <div class="flex flex-col md:flex-row md:justify-end items-center gap-6">
-        <div class="block md:hidden">
+        <!-- <div class="block md:hidden">
           <img
             src="/public/about banner.png"
             alt="About Banner"
             class="w-full rounded-xl shadow-md"
           />
-        </div>
+        </div> -->
 
         <div
-          class="w-full max-w-lg bg-[#EDE6F2] rounded-2xl p-6 md:p-8 shadow-lg backdrop-blur-sm bg-opacity-90"
+          class="w-full max-w-lg bg-[#EDE6F2] rounded-2xl p-6 md:p-8 shadow-lg backdrop-blur-sm bg-opacity-90 md:mt-0 mt-48"
+          data-aos="fade-down"
+          data-aos-delay="200"
         >
           <h2
             class="text-2xl md:text-3xl font-bold text-purple-800 mb-4 text-center"
@@ -224,7 +230,7 @@
       <h2 class="font-semibold text-3xl text-[#3E2D7E] text-center mt-10">
         Project Amenities
       </h2>
-      <div class="mt-10">
+      <div class="mt-10" data-aos="fade-down" data-aos-delay="200">
         <div class="flex flex-col md:flex-row items-center gap-6">
           <!-- Features List -->
           <div class="flex flex-wrap justify-center gap-30 flex-1">
@@ -238,7 +244,11 @@
                 :alt="feature.title"
                 class="h-40 mb-4"
               />
-              <p class="text-sm text-[#EE6FA8] leading-snug">
+              <p
+                class="text-sm text-[#EE6FA8] leading-snug"
+                data-aos="fade-right"
+                data-aos-delay="200"
+              >
                 {{ feature.title }}
               </p>
             </div>
@@ -248,7 +258,11 @@
           <div class="hidden md:block w-[2px] bg-green-600 h-32 mx-4"></div>
 
           <!-- Tagline -->
-          <div class="text-center md:text-left md:w-64">
+          <div
+            class="text-center md:text-left md:w-64"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <h2 class="text-xl md:text-3xl font-semibold text-[#3E2D7E]">
               Your Canvas,<br />Your Masterpiece.
             </h2>
@@ -259,24 +273,26 @@
     <!-- Location advantage with map -->
     <section class="bg-white py-12 px-4" id="location">
       <div class="flex justify-around items-center flex-col px-10">
-        <h2
-          class="text-2xl md:text-3xl font-semibold text-center text-purple-800 mb-10"
-        >
-          Location advantage with map
-        </h2>
-
         <div
           class="flex flex-col lg:flex-row items-center justify-around gap-10 md:gap-0"
         >
           <!-- Map Image -->
-          <div class="w-full lg:w-1/3">
+          <div
+            class="w-full lg:w-1/3"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <img
               src="/public/map.png"
               alt="Location Map"
               class="rounded-lg w-full object-contain"
             />
           </div>
-          <div class="hidden lg:flex flex-col items-center justify-center">
+          <div
+            class="hidden lg:flex flex-col items-center justify-center"
+            data-aos="fade-down"
+            data-aos-delay="200"
+          >
             <img
               src="/public/butterfly1.gif"
               alt="image"
@@ -290,7 +306,11 @@
           </div>
 
           <!-- Description and List -->
-          <div class="w-full lg:w-1/3 space-y-4">
+          <div
+            class="w-full lg:w-1/3 space-y-4"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
             <h3 class="text-3xl font-semibold text-purple-800">
               Close to All, Far from Ordinary
             </h3>
@@ -333,11 +353,17 @@
         class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-8"
       >
         <!-- Left Content -->
-        <div class="lg:w-1/2 text-white space-y-6">
-          <h2 class="text-4xl md:text-5xl font-bold leading-tight">
-            19 years of experience<br />
-            in creating exceptional living spaces
-          </h2>
+        <div
+          class="lg:w-1/2 text-white space-y-6 px-4"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
+          <div id="type" class="max-w-full overflow-hidden">
+            <h2 class="text-xl md:text-5xl font-bold leading-tight">
+              19+ years of experience in creating exceptional living spaces
+            </h2>
+          </div>
+
           <p class="text-sm md:text-base text-gray-300">
             Asset Tree Homes consistently delivers superior quality homes,
             creating lasting legacies that stand the test of time.
@@ -346,6 +372,8 @@
           <!-- Animated Counters -->
           <div
             class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 text-center bg-white/90 text-[#3E2D7E] p-6 rounded-lg px-3"
+            data-aos="flip-left"
+            data-aos-delay="200"
           >
             <div>
               <p class="text-3xl font-bold">{{ years }}+</p>
@@ -368,50 +396,58 @@
 
         <!-- Right Form -->
         <div
-          class="w-full md:w-1/3 bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-6 md:p-10 text-black"
+          class="w-full md:w-1/3 bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-6 text-black"
+          data-aos="flip-right"
+          data-aos-delay="200"
         >
-          <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center">
-            Get in Touch
-          </h2>
-          <form class="space-y-4">
-            <input
-              type="text"
-              placeholder="Full Name"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <textarea
-              rows="4"
-              placeholder="Message / Inquiry"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-            <button
-              type="submit"
-              class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition"
+          <div class="w-full max-w-md p-4 md:p-10 mx-auto">
+            <h2
+              class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
             >
-              Submit
-            </button>
-          </form>
+              Register now
+            </h2>
+            <form class="space-y-4">
+              <input
+                type="text"
+                placeholder="Full Name"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <textarea
+                rows="4"
+                placeholder="Message / Inquiry"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              ></textarea>
+              <button
+                type="submit"
+                class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+              >
+                Enquire Now
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
     <!-- Footer Section -->
-    <section id="footer" class="bg-[#E92A7B] text-white py-8 px-4">
+    <section id="footer" class="text-white py-8 px-4">
       <Footer />
     </section>
   </div>
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const years = ref(0);
 const projects = ref(0);
@@ -438,6 +474,15 @@ const animateCounter = (target, refVar, duration = 1000) => {
 };
 
 onMounted(() => {
+  setInterval(updateText, 4000);
+});
+
+onMounted(() => {
+  setInterval(updateText, 4000);
+});
+
+onMounted(() => {
+  AOS.init();
   animateCounter(20, years, 800); // 800ms duration
   animateCounter(100, projects, 800);
   animateCounter(1000, homes, 800);
@@ -467,3 +512,21 @@ const features = [
   },
 ];
 </script>
+<style>
+#type h2 {
+  width: 20ch;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 2s steps(20) infinite alternate;
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 20ch;
+  }
+}
+</style>

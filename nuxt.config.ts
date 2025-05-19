@@ -9,17 +9,15 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      // ...your existing title, meta, etc.
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {
           rel: "stylesheet",
-          href: "https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css",
+          href: "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css",
         },
       ],
       script: [
         {
-          src: "https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js",
+          src: "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js",
           defer: true,
         },
       ],
