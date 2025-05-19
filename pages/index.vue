@@ -7,94 +7,152 @@
     <!-- hero section -->
     <section
       id="hero"
-      class="relative min-h-screen bg-cover bg-center flex items-center justify-between px-4 py-12"
+      class="relative min-h-screen bg-cover bg-center px-4 py-16 flex items-center justify-center"
       :style="{ backgroundImage: 'url(/banner.png)' }"
     >
-      <div class="text-center md:-mt-[620px] pl-10 flex flex-col gap-2">
-        <h2 class="font-semibold text-3xl text-[#3E2D7E]">Presenting Modern</h2>
-        <h2 class="font-semibold text-3xl text-[#3E2D7E]">
-          Lifestyle Apartment
-        </h2>
-        <img
-          src="/public/Meadows Logo.png"
-          alt="logo"
-          cl
-          class="md:w-[220px] md:h-[90px] w-[150px] h-[60px]"
-        />
-      </div>
-
-      <!-- Optional overlay for better contrast -->
+      <!-- Optional semi-transparent overlay -->
       <div class="absolute inset-0 bg-white/40 md:bg-transparent"></div>
 
       <div
-        class="relative z-10 flex flex-col md:flex-row w-full max-w-7xl mx-auto"
+        class="relative z-10 w-full flex flex-col md:flex-row items-center justify-between gap-8 px-10 -mt-[120px]"
       >
-        <!-- Spacer on the left to push form to the right -->
-        <div class="hidden md:block md:w-4/6"></div>
+        <!-- Left Text Block -->
 
-        <!-- Form container -->
         <div
-          class="w-full md:w-1/3 bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-6 md:p-10 md:-mt-30"
+          class="w-full md:w-1/2 text-center md:text-left md:-mt-[460px] mt-10"
         >
-          <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-center">
-            Get in Touch
-          </h2>
-          <form class="space-y-4">
-            <input
-              type="text"
-              placeholder="Full Name"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          <div class="flex flex-col gap-4">
+            <h2 class="text-[#3E2D7E] text-3xl md:text-4xl font-semibold">
+              Presenting Modern
+            </h2>
+            <h2 class="text-[#3E2D7E] text-3xl md:text-4xl font-semibold">
+              Lifestyle Apartment
+            </h2>
+            <img
+              src="/Meadows Logo.png"
+              alt="logo"
+              class="mx-auto md:mx-0 w-[150px] h-[60px] md:w-[220px] md:h-[90px]"
             />
-            <input
-              type="email"
-              placeholder="Email Address"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <textarea
-              rows="4"
-              placeholder="Message / Inquiry"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-            <button
-              type="submit"
-              class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition"
+          </div>
+        </div>
+
+        <!-- Right Form Box -->
+        <div class="w-full md:w-2/5">
+          <div
+            class="w-full max-w-md bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-10 mx-auto"
+          >
+            <h2
+              class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
             >
-              Submit
-            </button>
-          </form>
+              Register now
+            </h2>
+            <form class="space-y-4">
+              <input
+                type="text"
+                placeholder="Full Name"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <input
+                type="tel"
+                placeholder="Phone Number"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <textarea
+                rows="4"
+                placeholder="Message / Inquiry"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              ></textarea>
+              <button
+                type="submit"
+                class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+              >
+                Enquire Now
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
+
     <!-- about section -->
+    <!-- <section
+      id="about"
+      class="relative py-16 px-4 bg-no-repeat bg-cover bg-center md:bg-fixed"
+      style="background-image: url('/about banner.png')"
+    >
+      <div
+        class="w-full max-w-lg bg-[#EDE6F2] rounded-2xl p-6 md:p-8 shadow-lg backdrop-blur-sm bg-opacity-90"
+      >
+        <h2
+          class="text-2xl md:text-3xl font-bold text-purple-800 mb-4 text-center"
+        >
+          About Project
+        </h2>
+
+        <div class="flex justify-center mb-4">
+          <img
+            src="/public/Meadows Flower.gif"
+            alt="Asset Tree Homes Logo"
+            class="h-12 md:h-16"
+          />
+        </div>
+
+        <p
+          class="text-gray-700 text-sm md:text-base leading-relaxed text-justify"
+        >
+          Asset Tree Homes presents <strong>ATH MEADOWS</strong> — a
+          thoughtfully designed residential apartment project located in
+          Madambakkam. <br /><br />
+          Offering modern 2 & 3 BHK apartments, ATH MEADOWS blends architectural
+          excellence with functional design in a calm and well-connected
+          neighborhood.
+          <br /><br />
+          Ideal for families, first-time home buyers, and investors looking for
+          a peaceful, yet growing part of the city to call home.
+        </p>
+      </div>
+    </section> -->
 
     <section
       id="about"
-      class="relative bg-cover bg-center bg-no-repeat py-16 px-4"
+      class="relative py-16 px-4 bg-no-repeat bg-cover bg-center md:bg-fixed"
+      :class="{ 'bg-none': screenWidth < 768 }"
       style="background-image: url('/about banner.png')"
     >
-      <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-4">
-        About Project
-      </h2>
-      <div class="flex justify-end">
+      <div class="flex flex-col md:flex-row md:justify-end items-center gap-6">
+        <div class="block md:hidden">
+          <img
+            src="/public/about banner.png"
+            alt="About Banner"
+            class="w-full rounded-xl shadow-md"
+          />
+        </div>
+
         <div
-          class="w-[500px] bg-[#EDE6F2] rounded-2xl p-6 md:p-7 shadow-lg backdrop-blur-sm bg-opacity-90"
+          class="w-full max-w-lg bg-[#EDE6F2] rounded-2xl p-6 md:p-8 shadow-lg backdrop-blur-sm bg-opacity-90"
         >
-          <!-- Logo -->
-          <div class="">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-purple-800 mb-4 text-center"
+          >
+            About Project
+          </h2>
+
+          <div class="flex justify-center mb-4">
             <img
-              src="/Meadows Flower.gif"
+              src="/public/Meadows Flower.gif"
               alt="Asset Tree Homes Logo"
-              class="h-12 md:h-40 px-40"
+              class="h-12 md:h-16"
             />
           </div>
 
-          <!-- Description -->
-          <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+          <p
+            class="text-gray-700 text-sm md:text-base leading-relaxed text-justify"
+          >
             Asset Tree Homes presents <strong>ATH MEADOWS</strong> — a
             thoughtfully designed residential apartment project located in
             Madambakkam. <br /><br />
@@ -108,9 +166,62 @@
         </div>
       </div>
     </section>
+    <!-- <section
+      id="about"
+      class="relative py-16 px-4 bg-no-repeat bg-cover bg-center md:bg-fixed md:bg-[url('/public/about banner.png')]"
+      style="background-image: url('/about banner.png')"
+    >
+      <div
+        class="flex flex-col md:flex-row md:justify-end items-center gap-6 max-w-6xl mx-auto"
+      >
+        
+        <div class="block md:hidden w-full">
+          <img
+            src="/public/about banner.png"
+            alt="About Banner"
+            class="w-full rounded-xl shadow-md max-w-md"
+          />
+        </div>
+
+        <div
+          class="w-full max-w-lg bg-[#EDE6F2] rounded-2xl p-6 md:p-8 shadow-lg backdrop-blur-sm bg-opacity-90"
+        >
+          <h2
+            class="text-2xl md:text-3xl font-bold text-purple-800 mb-4 text-center"
+          >
+            About Project
+          </h2>
+
+         
+          <div class="flex justify-center mb-4">
+            <img
+              src="/public/Meadows Flower.gif"
+              alt="Asset Tree Homes Logo"
+              class="h-12 md:h-16"
+            />
+          </div>
+
+          
+          <p
+            class="text-gray-700 text-sm md:text-base leading-relaxed text-justify"
+          >
+            Asset Tree Homes presents <strong>ATH MEADOWS</strong> — a
+            thoughtfully designed residential apartment project located in
+            Madambakkam. <br /><br />
+            Offering modern 2 & 3 BHK apartments, ATH MEADOWS blends
+            architectural excellence with functional design in a calm and
+            well-connected neighborhood.
+            <br /><br />
+            Ideal for families, first-time home buyers, and investors looking
+            for a peaceful, yet growing part of the city to call home.
+          </p>
+        </div>
+      </div>
+    </section> -->
+
     <!-- Project Amenities -->
     <section class="py-1" id="amenities">
-      <h2 class="font-semibold text-3xl text-[#3E2D7E] text-center">
+      <h2 class="font-semibold text-3xl text-[#3E2D7E] text-center mt-10">
         Project Amenities
       </h2>
       <div class="mt-10">
@@ -127,18 +238,18 @@
                 :alt="feature.title"
                 class="h-40 mb-4"
               />
-              <p class="text-sm text-[#3E2D7E] leading-snug">
+              <p class="text-sm text-[#EE6FA8] leading-snug">
                 {{ feature.title }}
               </p>
             </div>
           </div>
 
           <!-- Divider Line on Desktop -->
-          <div class="hidden md:block w-px bg-green-600 h-32 mx-4"></div>
+          <div class="hidden md:block w-[2px] bg-green-600 h-32 mx-4"></div>
 
           <!-- Tagline -->
           <div class="text-center md:text-left md:w-64">
-            <h2 class="text-xl md:text-2xl font-semibold text-purple-800">
+            <h2 class="text-xl md:text-3xl font-semibold text-[#3E2D7E]">
               Your Canvas,<br />Your Masterpiece.
             </h2>
           </div>
@@ -154,25 +265,27 @@
           Location advantage with map
         </h2>
 
-        <div class="flex flex-col lg:flex-row items-center gap-10">
+        <div
+          class="flex flex-col lg:flex-row items-center justify-around gap-10 md:gap-0"
+        >
           <!-- Map Image -->
-          <div class="w-full lg:w-2/3">
+          <div class="w-full lg:w-1/3">
             <img
               src="/public/map.png"
               alt="Location Map"
               class="rounded-lg w-full object-contain"
             />
           </div>
-          <div>
+          <div class="hidden lg:flex flex-col items-center justify-center">
             <img
               src="/public/butterfly1.gif"
               alt="image"
-              class="w-[130px] h-[130px]"
+              class="w-[100px] h-[100px]"
             />
             <img
               src="/public/butterfly2.gif"
               alt="image"
-              class="w-[130px] h-[130px]"
+              class="w-[100px] h-[100px]"
             />
           </div>
 
@@ -212,7 +325,7 @@
     <section
       id="counter"
       class="relative bg-cover bg-center py-12 px-6 text-white"
-      style="background-image: url('/banner.png')"
+      style="background-image: url('/banner2.png')"
     >
       <div class="bg-black/40 absolute inset-0 z-0"></div>
 
@@ -221,33 +334,33 @@
       >
         <!-- Left Content -->
         <div class="lg:w-1/2 text-white space-y-6">
-          <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight">
             19 years of experience<br />
             in creating exceptional living spaces
           </h2>
-          <p class="text-sm md:text-base text-gray-200">
+          <p class="text-sm md:text-base text-gray-300">
             Asset Tree Homes consistently delivers superior quality homes,
             creating lasting legacies that stand the test of time.
           </p>
 
           <!-- Animated Counters -->
           <div
-            class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 text-center bg-white/90 text-purple-900 p-4 rounded-lg"
+            class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 text-center bg-white/90 text-[#3E2D7E] p-6 rounded-lg px-3"
           >
             <div>
-              <p class="text-xl font-bold">{{ years }}+</p>
+              <p class="text-3xl font-bold">{{ years }}+</p>
               <p class="text-sm">Years of Excellence</p>
             </div>
             <div>
-              <p class="text-xl font-bold">{{ projects }}+</p>
+              <p class="text-3xl font-bold">{{ projects }}+</p>
               <p class="text-sm">Completed Projects</p>
             </div>
             <div>
-              <p class="text-xl font-bold">{{ homes }}+</p>
+              <p class="text-3xl font-bold">{{ homes }}+</p>
               <p class="text-sm">Happy Homes</p>
             </div>
             <div>
-              <p class="text-xl font-bold">{{ staff }}+</p>
+              <p class="text-3xl font-bold">{{ staff }}+</p>
               <p class="text-sm">Experienced Personnel</p>
             </div>
           </div>
@@ -299,32 +412,36 @@
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
+
 const years = ref(0);
 const projects = ref(0);
 const homes = ref(0);
 const staff = ref(0);
 
-const animateCounter = (target, refVar, speed = 50) => {
-  let count = 0;
-  const step = Math.ceil(target / 60);
+// New version: uses time-based animation
+const animateCounter = (target, refVar, duration = 1000) => {
+  const start = performance.now();
 
-  const update = () => {
-    count += step;
-    if (count >= target) {
-      refVar.value = target;
-    } else {
-      refVar.value = count;
+  const update = (timestamp) => {
+    const elapsed = timestamp - start;
+    const progress = Math.min(elapsed / duration, 1); // from 0 to 1
+    refVar.value = Math.floor(progress * target);
+
+    if (progress < 1) {
       requestAnimationFrame(update);
+    } else {
+      refVar.value = target; // ensure it ends cleanly
     }
   };
 
-  update();
+  requestAnimationFrame(update);
 };
+
 onMounted(() => {
-  animateCounter(20, years);
-  animateCounter(100, projects);
-  animateCounter(1000, homes);
-  animateCounter(150, staff);
+  animateCounter(20, years, 800); // 800ms duration
+  animateCounter(100, projects, 800);
+  animateCounter(1000, homes, 800);
+  animateCounter(150, staff, 800);
 });
 
 const features = [

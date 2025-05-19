@@ -41,7 +41,7 @@
         <a href="#counter" class="nav-link">Contact</a>
         <a
           href="#"
-          class="bg-[#123B78] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#e64a19]"
+          class="bg-[#3E2D7E] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#E92A7B]"
         >
           📞 Call Now
         </a>
@@ -51,19 +51,13 @@
     <!-- Mobile Navigation -->
     <div
       v-if="isOpen"
-      class="md:hidden bg-[#123B78] px-4 py-4 space-y-2 text-sm transition-all duration-300"
+      class="md:hidden bg-[#123B78] px-4 py-4 space-y-2 text-sm transition-all duration-300 text-center"
     >
-      <a href="#" class="block nav-link text-white">Home</a>
-      <a href="#" class="block nav-link text-white">About</a>
-      <a href="#" class="block nav-link text-white">Property</a>
-      <a href="#" class="block nav-link text-white">News</a>
-      <a href="#" class="block nav-link text-white">Contact</a>
-      <a
-        href="#"
-        class="block text-center bg-[#123B78] text-white font-semibold px-4 py-2 rounded hover:bg-[#e64a19]"
-      >
-        📞 Call Now
-      </a>
+      <a href="#hero" class="block nav-link text-white">Home</a>
+      <a href="#about" class="block nav-link text-white">About</a>
+      <a href="#amenities" class="block nav-link text-white">Property</a>
+      <a href="#location" class="block nav-link text-white">News</a>
+      <a href="#counter" class="block nav-link text-white">Contact</a>
     </div>
   </header>
 </template>
