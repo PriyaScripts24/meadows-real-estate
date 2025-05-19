@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white text-[#123B78]">
+  <header class="bg-white text-[#123B78] fixed top-0 z-50 w-full shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center space-x-2">
@@ -34,13 +34,43 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-20 text-xl items-center">
-        <a href="#hero" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#amenities" class="nav-link">Property</a>
-        <a href="#location" class="nav-link">News</a>
-        <a href="#counter" class="nav-link">Contact</a>
         <a
-          href="#"
+          href="#hero"
+          class="nav-link"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="nav-link"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          >About</a
+        >
+        <a
+          href="#amenities"
+          class="nav-link"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          >Property</a
+        >
+        <a
+          href="#location"
+          class="nav-link"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          >News</a
+        >
+        <a
+          href="#counter"
+          class="nav-link"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          >Contact</a
+        >
+        <a
+          href="tel:+9189398 56789"
           class="bg-[#E92A7B] text-white text-sm font-semibold shadow-lg px-6 py-3 rounded-lg hover:bg-[#EE6FA8]"
         >
           Call Now
@@ -49,16 +79,19 @@
     </div>
 
     <!-- Mobile Navigation -->
-    <div
-      v-if="isOpen"
-      class="md:hidden bg-[#123B78] px-4 py-4 space-y-2 text-sm transition-all duration-300 text-center"
-    >
-      <a href="#hero" class="block nav-link text-white">Home</a>
-      <a href="#about" class="block nav-link text-white">About</a>
-      <a href="#amenities" class="block nav-link text-white">Property</a>
-      <a href="#location" class="block nav-link text-white">News</a>
-      <a href="#counter" class="block nav-link text-white">Contact</a>
-    </div>
+    <transition name="slide">
+      <div
+        v-if="isOpen"
+        class="fixed inset-0 z-40 bg-[#123B78] text-white p-6 w-64 transform transition-transform duration-300 md:hidden"
+        :class="{ 'translate-x-0': isOpen, '-translate-x-full': !isOpen }"
+      >
+        <a href="#hero" class="block nav-link py-2">Home</a>
+        <a href="#about" class="block nav-link py-2">About</a>
+        <a href="#amenities" class="block nav-link py-2">Property</a>
+        <a href="#location" class="block nav-link py-2">News</a>
+        <a href="#counter" class="block nav-link py-2">Contact</a>
+      </div>
+    </transition>
   </header>
 </template>
 
@@ -68,6 +101,15 @@ const isOpen = ref(false);
 </script>
 
 <style scoped>
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease;
+}
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+
 .nav-link {
   position: relative;
   padding-bottom: 4px;

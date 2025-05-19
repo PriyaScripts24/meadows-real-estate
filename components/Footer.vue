@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#3E2D7E] text-white py-8 px-4">
+  <footer class="bg-[#3E2D7E] text-white py-10 p-4 px-6">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Logo & Address -->
       <div class="space-y-4">
@@ -18,7 +18,7 @@
 
       <!-- Quick Links -->
       <div>
-        <h3 class="text-lg font-semibold mb-4 text-[#E92A7B]">Quick Links</h3>
+        <h3 class="text-lg font-semibold mb-4 text-[#E5E1ED]">Quick Links</h3>
         <ul class="space-y-2 text-md">
           <li>
             <a href="#" class="hover:underline"
@@ -41,7 +41,7 @@
 
       <!-- Discover -->
       <div>
-        <h3 class="text-lg font-semibold mb-4 text-[#E92A7B]">Discover</h3>
+        <h3 class="text-lg font-semibold mb-4 text-[#E5E1ED]">Discover</h3>
         <ul class="space-y-2 text-md">
           <li><a href="#hero" class="hover:underline">Home</a></li>
           <li><a href="#about" class="hover:underline">About</a></li>
