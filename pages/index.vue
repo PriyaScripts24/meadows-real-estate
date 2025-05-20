@@ -151,24 +151,28 @@
 
     <!-- about section -->
 
-    <section>
-      <div class="flex justify-around items-center gap-12 px-6 mt-5">
-        <div>
+    <section class="px-6 -mt-10 md:-mt-5" id="about">
+      <div
+        class="flex flex-col md:flex-row justify-around items-center gap-8 md:gap-12"
+      >
+        <!-- Image Section -->
+        <div class="w-full md:w-1/2">
           <img
-            src="/public/about.jpg"
+            src="/about.jpg"
             alt="image"
-            class="object-cover object-center"
+            class="w-full h-auto object-cover object-center rounded-xl shadow-md"
           />
         </div>
-        <div class="flex flex-col gap-2">
-          <h2 class="font-semibold text-xl text-[#3E2D7E]">
+
+        <!-- Text Content Section -->
+        <div class="w-full md:w-1/2 flex flex-col gap-4">
+          <h2 class="font-semibold text-2xl md:text-3xl text-[#3E2D7E]">
             Your Quiet Corner in a Vibrant City
           </h2>
-          <p class="text-gray-4 00 text-md">
-            2&3 BHK Premium Apartments in Madambakkam Surrounded by Nature.
+          <p class="text-gray-600 text-base md:text-lg">
+            2 & 3 BHK Premium Apartments in Madambakkam Surrounded by Nature.
           </p>
-
-          <p class="text-gray-4 00 text-md">
+          <p class="text-gray-600 text-base md:text-lg">
             ATH Meadows is a premium residential apartment project nestled in
             the calm and green surroundings of Madambakkam, Chennai. Designed
             for those who value a blend of nature and modern comfort, these 2 &
@@ -297,7 +301,7 @@
         Amenities
       </h2>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 px-10 md:px-0"
       >
         <div class="flex items-center gap-4">
           <img
@@ -452,7 +456,7 @@
     </section>
     <!-- Location advantage with map -->
 
-    <section class="px-20 py-10">
+    <section class="px-10 py-10">
       <div
         class="flex flex-col md:flex-row justify-between items-center gap-10"
       >
@@ -587,7 +591,7 @@
       <Footer />
     </section>
     <!-- Mobile Sticky Call Now Button -->
-    <section
+    <!-- <section
       class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-gray-300 shadow-lg overflow-hidden"
     >
       <div class="flex justify-center items-center gap-4">
@@ -598,7 +602,7 @@
           Call Now
         </a>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script setup>

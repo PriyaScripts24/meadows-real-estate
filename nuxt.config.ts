@@ -39,7 +39,12 @@ export default defineNuxtConfig({
         // },
       ],
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        {
+          rel: "icon",
+          type: "public/gif",
+          href: "/favicon.gif",
+          sizes: "48x48",
+        },
         {
           rel: "stylesheet",
           href: "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css",
