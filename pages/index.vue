@@ -151,7 +151,7 @@
 
     <!-- about section -->
 
-    <section class="px-6 -mt-10 md:-mt-5" id="about">
+    <section class="px-6 -mt-10 md:mt-10" id="about">
       <div
         class="flex flex-col md:flex-row justify-around items-center gap-8 md:gap-12"
       >
@@ -456,7 +456,7 @@
     </section>
     <!-- Location advantage with map -->
 
-    <section class="px-10 py-10">
+    <section class="px-20 py-10">
       <div
         class="flex flex-col md:flex-row justify-between items-center gap-10"
       >
