@@ -5,79 +5,145 @@
       <Header />
     </section>
     <!-- hero section -->
-    <section
-      id="hero"
-      class="relative min-h-screen bg-cover bg-center px-4 py-16 flex items-center justify-center"
-      :style="{ backgroundImage: 'url(/banner.png)' }"
-    >
-      <!-- Optional semi-transparent overlay -->
-      <div class="absolute inset-0 bg-white/40 md:bg-transparent"></div>
 
-      <div
-        class="relative z-10 w-full flex flex-col md:flex-row items-center justify-between gap-8 px-10 -mt-[120px]"
+    <section id="hero" class="relative min-h-screen overflow-hidden mt-10">
+      <!-- Swiper Background -->
+      <Swiper
+        :modules="[Autoplay]"
+        :autoplay="{ delay: 2200, disableOnInteraction: false }"
+        :loop="true"
+        class="absolute inset-0 z-0 w-full h-full"
+        @slideChange="onSlideChange"
       >
-        <!-- Left Text Block -->
+        <SwiperSlide v-for="(slide, index) in slides" :key="index">
+          <img :src="slide.image" class="w-full h-full object-cover" />
+        </SwiperSlide>
+      </Swiper>
 
-        <div
-          class="w-full md:w-1/2 text-center md:text-left md:-mt-[300px] mt-10"
-        >
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-transparent z-10"></div>
+
+      <!-- Content -->
+      <div
+        class="relative z-20 w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:px-10"
+      >
+        <!-- Title Area (changes per slide) -->
+        <div class="lg:-top-[720px] lg:flex w-full lg:absolute lg:px-20">
           <div
-            class="flex flex-col gap-4"
-            data-aos="flip-left"
+            class="w-full md:text-left mt-10 md:mt-0 lg:absolute lg:left-0 lg:w-[50%] lg:h-[28.6%] lg:flex lg:p-6"
+          >
+            <div
+              class="flex flex-col gap-4 line-clamp-3 w-full lg:w-[60%] lg:items-start lg:justify-start items-start justify-start px-4 lg:px-0"
+            >
+              <h2 class="text-[#3E2D7E] text-lg lg:text-2xl font-semibold">
+                {{ slides[currentIndex].title }}
+              </h2>
+              <h2 class="text-black text-md lg:text-2xl font-semibold">
+                {{ slides[currentIndex].subtitle }}
+              </h2>
+            </div>
+          </div>
+
+          <!-- Mobile-only Image -->
+          <!-- <div class="lg:hidden w-full overflow-hidden rounded-xl">
+          <img
+            :src="slides[currentIndex].image"
+            class="w-full object-cover object-[30%_center]"
+          />
+        </div> -->
+
+          <!-- Form (unchanged) -->
+          <div
+            class="w-full lg:w-[70%] md:min-w-[20px] max-w-[400px] ml-auto md:mt-5"
+            data-aos="fade-left"
             data-aos-delay="200"
           >
-            <h2 class="text-[#3E2D7E] text-3xl md:text-4xl font-semibold">
-              Presenting Modern
-            </h2>
-            <h2 class="text-[#3E2D7E] text-3xl md:text-4xl font-semibold">
-              Lifestyle Apartment
-            </h2>
-            <img
-              src="/Meadows Logo.png"
-              alt="logo"
-              class="mx-auto md:mx-0 w-[120px] md:w-[170px]"
-            />
-          </div>
-        </div>
-
-        <!-- Right Form Box -->
-        <div class="w-full md:w-2/5" data-aos="fade-left" data-aos-delay="200">
-          <div
-            class="w-full max-w-md bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-10 mx-auto"
-          >
-            <h2
-              class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
+            <div
+              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8"
             >
-              Register now
-            </h2>
-            <form class="space-y-4">
-              <input
-                type="text"
-                placeholder="Full Name"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              />
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              />
-              <textarea
-                rows="4"
-                placeholder="Message / Inquiry"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              ></textarea>
+              <h2
+                class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
+              >
+                Register now
+              </h2>
+              <form class="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                />
+                <select
+                  name="villa"
+                  id="land"
+                  placeholder="Select Preference"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                >
+                  <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
+                  <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
+                </select>
+                <button
+                  type="submit"
+                  class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                >
+                  Enquire Now
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- Enquiry Modal -->
+          <div
+            v-if="showModal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          >
+            <div
+              class="bg-white max-w-md w-full p-6 rounded-xl shadow-2xl relative"
+            >
               <button
-                type="submit"
-                class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                @click="showModal = false"
+                class="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"
+              >
+                &times;
+              </button>
+              <h2
+                class="text-2xl font-semibold mb-4 text-[#3E2D7E] text-center"
               >
                 Enquire Now
-              </button>
-            </form>
+              </h2>
+              <form class="space-y-4">
+                <input type="text" placeholder="Full Name" class="form-input" />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="form-input"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  class="form-input"
+                />
+                <textarea
+                  rows="4"
+                  placeholder="Message / Inquiry"
+                  class="form-input resize-none"
+                ></textarea>
+                <button
+                  type="submit"
+                  class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -85,44 +151,32 @@
 
     <!-- about section -->
 
-    <section
-      id="about"
-      class="relative py-16 px-4 bg-no-repeat bg-cover bg-center md:bg-fixed md:-mt-0 -mt-20 overflow-hidden"
-      :class="{ 'bg-none': screenWidth < 768 }"
-      style="background-image: url('/about banner.png')"
-    >
-      <div class="flex flex-col md:flex-row md:justify-end items-center gap-6">
-        <div
-          class="w-full max-w-lg bg-[#EDE6F2] rounded-2xl p-6 md:p-8 shadow-lg backdrop-blur-sm bg-opacity-90 md:mt-0 mt-48"
-          data-aos="fade-down"
-          data-aos-delay="200"
-        >
-          <h2
-            class="text-2xl md:text-3xl font-semibold text-[#3E2D7E] mb-4 text-center"
-          >
-            About Project
+    <section>
+      <div class="flex justify-around items-center gap-12 px-6 mt-5">
+        <div>
+          <img
+            src="/public/about.jpg"
+            alt="image"
+            class="object-cover object-center"
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <h2 class="font-semibold text-xl text-[#3E2D7E]">
+            Your Quiet Corner in a Vibrant City
           </h2>
+          <p class="text-gray-4 00 text-md">
+            2&3 BHK Premium Apartments in Madambakkam Surrounded by Nature.
+          </p>
 
-          <div class="flex justify-center mb-4">
-            <img
-              src="/public/Meadows Flower.gif"
-              alt="Asset Tree Homes Logo"
-              class="h-12 md:h-16"
-            />
-          </div>
-
-          <p
-            class="text-gray-700 text-sm md:text-base leading-relaxed text-justify"
-          >
-            Asset Tree Homes presents <strong>ATH MEADOWS</strong> — a
-            thoughtfully designed residential apartment project located in
-            Madambakkam. <br /><br />
-            Offering modern 2 & 3 BHK apartments, ATH MEADOWS blends
-            architectural excellence with functional design in a calm and
-            well-connected neighborhood.
-            <br /><br />
-            Ideal for families, first-time home buyers, and investors looking
-            for a peaceful, yet growing part of the city to call home.
+          <p class="text-gray-4 00 text-md">
+            ATH Meadows is a premium residential apartment project nestled in
+            the calm and green surroundings of Madambakkam, Chennai. Designed
+            for those who value a blend of nature and modern comfort, these 2 &
+            3 BHK apartments offer elegant architecture, lush landscapes, and
+            lifestyle-enhancing amenities. With easy access to key destinations
+            like Tambaram and Medavakkam, ATH Meadows brings together
+            convenience, serenity, and contemporary urban living in one
+            harmonious space.
           </p>
         </div>
       </div>
@@ -130,14 +184,11 @@
 
     <!-- Project Amenities -->
     <section class="py-1 overflow-hidden" id="amenities">
-      <h2 class="font-semibold text-3xl text-[#3E2D7E] text-center mt-10">
-        Project Amenities
-      </h2>
       <div class="mt-10" data-aos="fade-down" data-aos-delay="200">
         <div
           class="flex flex-col md:flex-row items-center justify-center gap-6"
         >
-          <div class="flex flex-wrap justify-center md:gap-30 gap-10">
+          <div class="flex flex-wrap justify-center md:gap-10 gap-10">
             <div
               v-for="(feature, index) in features"
               :key="index"
@@ -172,8 +223,8 @@
         </div>
       </div>
     </section>
-    <!-- Location advantage with map -->
-    <section class="bg-white py-12 px-4" id="location">
+
+    <!-- <section class="bg-white py-12 px-4" id="location">
       <div class="flex justify-around items-center flex-col px-10">
         <div
           class="flex flex-col lg:flex-row items-center justify-around gap-10 md:gap-0"
@@ -240,7 +291,202 @@
           </div>
         </div>
       </div>
+    </section> -->
+    <section class="py-10 px-4 md:px-10">
+      <h2 class="text-3xl font-semibold text-[#3E2D7E] text-center mb-6">
+        Amenities
+      </h2>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4"
+      >
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image1.png"
+            alt="Yoga Hut"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Yoga Hut</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image2.png"
+            alt="Indoor Games"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Indoor Games</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image3.png"
+            alt="Association Room"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Association Room</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img src="/public/image4.png" alt="Gym" class="w-[60px] h-[60px]" />
+          <p class="font-semibold text-md">Gym</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image5.png"
+            alt="Guest Bedroom"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Guest Bedroom</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image6.png"
+            alt="Rooftop Children's Play Area"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Rooftop Children's Play Area</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image7.png"
+            alt="Video Door Phone"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Video Door Phone</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image8.png"
+            alt="Covered Car Parking"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Covered Car Parking</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image9.png"
+            alt="Potable Water"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Potable Water</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image10.png"
+            alt="Power Backup Genset"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Power Backup Genset</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image11.png"
+            alt="Private Terrace"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Private Terrace</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img src="/public/image12.png" alt="CCTV" class="w-[60px] h-[60px]" />
+          <p class="font-semibold text-md">Closed Circuit Television (CCTV)</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image13.png"
+            alt="Hygiene Bay"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Hygiene Bay</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img src="/public/image18.png" alt="Lift" class="w-[60px] h-[60px]" />
+          <p class="font-semibold text-md">Lift</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image14.png"
+            alt="Vastu Compliance"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">100% Vastu Compliance</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image15.png"
+            alt="Common Area System Plants"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Common Area System Plants</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image16.png"
+            alt="EV Charging Point"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">EV Charging Point</p>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <img
+            src="/public/image17.png"
+            alt="Terrace Sitout"
+            class="w-[60px] h-[60px]"
+          />
+          <p class="font-semibold text-md">Terrace Sitout</p>
+        </div>
+      </div>
     </section>
+    <!-- Location advantage with map -->
+
+    <section class="px-20 py-10">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center gap-10"
+      >
+        <!-- Text Block -->
+        <div class="w-full md:w-1/3 space-y-4">
+          <h2 class="text-xl md:text-2xl font-semibold text-[#3E2D7E]">
+            The Peace You Seek Is Just a Step Away
+          </h2>
+          <p class="text-md text-gray-700">
+            Tucked in the heart of Madambakkam, ATH Meadows offers a life woven
+            with calm, comfort and a quiet connection to nature. With
+            thoughtfully crafted spaces and a community built for serenity, this
+            is more than just a home. It is a gentle return to everything you
+            love.
+          </p>
+          <h4 class="text-lg font-semibold text-[#3E2D7E]">
+            Register now to experience it first-hand.
+          </h4>
+          <p class="text-md text-gray-700">
+            A peaceful way of living is waiting. Let it begin with you.
+          </p>
+        </div>
+
+        <!-- Image Block -->
+        <div class="w-full md:w-2/4">
+          <img
+            src="/map.png"
+            alt="map"
+            class="w-full h-auto rounded-xl shadow-md object-cover object-center"
+          />
+        </div>
+      </div>
+    </section>
+
     <!-- Counter Section -->
     <section
       id="counter"
@@ -257,8 +503,8 @@
           data-aos="fade-right"
           data-aos-delay="200"
         >
-          <div id="type" class="">
-            <h2 class="text-xl md:text-5xl font-bold leading-tight">
+          <div class="">
+            <h2 class="text-xl md:text-4xl font-bold leading-tight">
               19+ years of experience <br />in creating exceptional living
               spaces
             </h2>
@@ -359,6 +605,34 @@
 import { ref, onMounted } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Autoplay } from "swiper/modules";
+const showModal = ref(false);
+const modules = [Autoplay];
+const slides = [
+  {
+    image: "/banner.png",
+    title: "Where Petals Bloom & Life Unfolds",
+    subtitle: "Step into a serene world crafted for graceful living.",
+  },
+  {
+    image: "/banner2.jpeg",
+    title: "Crafted Spaces, Thoughtful Touches",
+    subtitle: "Modern homes embraced by gardens, peace, and poetry.",
+  },
+  {
+    image: "/banner3.jpeg",
+    title: "A Bloom of Comforts, A Flutter of Joy",
+    subtitle:
+      "Curated amenities that bring wellness, wonder and everyday ease.",
+  },
+];
+
+const currentIndex = ref(0);
+
+const onSlideChange = (swiper) => {
+  currentIndex.value = swiper.realIndex;
+};
 
 const years = ref(0);
 const projects = ref(0);
@@ -415,13 +689,16 @@ const features = [
   },
 ];
 </script>
-<style>
+<!-- <style lang="postcss" scoped>
 #type h2 {
   width: 20ch;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   white-space: nowrap;
   overflow: hidden;
   animation: typing 2s steps(30) infinite alternate;
+}
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E];
 }
 
 @keyframes typing {
@@ -432,4 +709,4 @@ const features = [
     width: 30ch;
   }
 }
-</style>
+</style> -->

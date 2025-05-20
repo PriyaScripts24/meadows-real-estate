@@ -4,7 +4,7 @@
       <!-- Logo & Address -->
       <div class="space-y-4">
         <img
-          src="/public/whitelogo.png"
+          src="/public/assettreehomes.png"
           alt="Asset Tree Homes"
           class="w-40 py-1"
         />
@@ -21,20 +21,18 @@
         <h3 class="text-lg font-semibold mb-4 text-[#E5E1ED]">Quick Links</h3>
         <ul class="space-y-2 text-md">
           <li>
-            <a href="#" class="hover:underline"
-              >Apartments for Sale in Pammal</a
-            >
+            <a href="#" class="hover:underline">2&3 BHK Apartments</a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline">Apartments in Tambaram</a>
           </li>
           <li>
             <a href="#" class="hover:underline"
-              >2 & 3 BHK Apartments in Chennai</a
+              >Apartments for Sale in Madambakkam</a
             >
           </li>
           <li>
-            <a href="#" class="hover:underline">Pammal’s Mega Savings Mela</a>
-          </li>
-          <li>
-            <a href="#" class="hover:underline">Location Advantage of Pammal</a>
+            <a href="#" class="hover:underline">Location Advantages</a>
           </li>
         </ul>
       </div>
