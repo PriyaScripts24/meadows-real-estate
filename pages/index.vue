@@ -30,6 +30,8 @@
         <!-- Title Area (changes per slide) -->
         <div class="lg:-top-[720px] lg:flex w-full lg:absolute lg:px-20">
           <div
+            data-aos="fade-right"
+            data-aos-delay="200"
             class="w-full md:text-left mt-10 md:mt-0 lg:absolute lg:left-0 lg:w-[50%] lg:h-[28.6%] lg:flex lg:p-6"
           >
             <div
@@ -156,7 +158,7 @@
         class="flex flex-col md:flex-row justify-around items-center gap-8 md:gap-12"
       >
         <!-- Image Section -->
-        <div class="w-full md:w-1/2">
+        <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-delay="200">
           <img
             src="/about.jpg"
             alt="image"
@@ -165,7 +167,11 @@
         </div>
 
         <!-- Text Content Section -->
-        <div class="w-full md:w-1/2 flex flex-col gap-4">
+        <div
+          class="w-full md:w-1/2 flex flex-col gap-4"
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
           <h2 class="font-semibold text-2xl md:text-3xl text-[#3E2D7E]">
             Your Quiet Corner in a Vibrant City
           </h2>
@@ -297,160 +303,35 @@
       </div>
     </section> -->
     <section class="py-10 px-4 md:px-10">
-      <h2 class="text-3xl font-semibold text-[#3E2D7E] text-center mb-6">
+      <h2
+        class="text-3xl font-semibold text-[#3E2D7E] text-center mb-6"
+        data-aos="fade-left"
+        data-aos-delay="200"
+      >
         Amenities
       </h2>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 px-10 md:px-0"
       >
-        <div class="flex items-center gap-4">
+        <div
+          v-for="(amenity, index) in amenities"
+          :key="index"
+          class="flex items-center gap-4"
+        >
           <img
-            src="/public/image1.png"
-            alt="Yoga Hut"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            :src="amenity.image"
+            :alt="amenity.title"
             class="w-[60px] h-[60px]"
           />
-          <p class="font-semibold text-md">Yoga Hut</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image2.png"
-            alt="Indoor Games"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Indoor Games</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image3.png"
-            alt="Association Room"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Association Room</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img src="/public/image4.png" alt="Gym" class="w-[60px] h-[60px]" />
-          <p class="font-semibold text-md">Gym</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image5.png"
-            alt="Guest Bedroom"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Guest Bedroom</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image6.png"
-            alt="Rooftop Children's Play Area"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Rooftop Children's Play Area</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image7.png"
-            alt="Video Door Phone"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Video Door Phone</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image8.png"
-            alt="Covered Car Parking"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Covered Car Parking</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image9.png"
-            alt="Potable Water"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Potable Water</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image10.png"
-            alt="Power Backup Genset"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Power Backup Genset</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image11.png"
-            alt="Private Terrace"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Private Terrace</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img src="/public/image12.png" alt="CCTV" class="w-[60px] h-[60px]" />
-          <p class="font-semibold text-md">Closed Circuit Television (CCTV)</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image13.png"
-            alt="Hygiene Bay"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Hygiene Bay</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img src="/public/image18.png" alt="Lift" class="w-[60px] h-[60px]" />
-          <p class="font-semibold text-md">Lift</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image14.png"
-            alt="Vastu Compliance"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">100% Vastu Compliance</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image15.png"
-            alt="Common Area System Plants"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Common Area System Plants</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image16.png"
-            alt="EV Charging Point"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">EV Charging Point</p>
-        </div>
-
-        <div class="flex items-center gap-4">
-          <img
-            src="/public/image17.png"
-            alt="Terrace Sitout"
-            class="w-[60px] h-[60px]"
-          />
-          <p class="font-semibold text-md">Terrace Sitout</p>
+          <p
+            class="font-semibold text-md"
+            data-aos="fade-down"
+            data-aos-delay="200"
+          >
+            {{ amenity.title }}
+          </p>
         </div>
       </div>
     </section>
@@ -461,7 +342,11 @@
         class="flex flex-col md:flex-row justify-between items-center gap-10"
       >
         <!-- Text Block -->
-        <div class="w-full md:w-1/3 space-y-4">
+        <div
+          class="w-full md:w-1/3 space-y-4"
+          data-aos="fade-right"
+          data-aos-delay="200"
+        >
           <h2 class="text-xl md:text-2xl font-semibold text-[#3E2D7E]">
             The Peace You Seek Is Just a Step Away
           </h2>
@@ -483,6 +368,8 @@
         <!-- Image Block -->
         <div class="w-full md:w-2/4">
           <img
+            data-aos="fade-left"
+            data-aos-delay="200"
             src="/map.png"
             alt="map"
             class="w-full h-auto rounded-xl shadow-md object-cover object-center"
@@ -613,6 +500,26 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
 const showModal = ref(false);
 const modules = [Autoplay];
+const amenities = [
+  { image: "/image1.png", title: "Yoga Hut" },
+  { image: "/image2.png", title: "Indoor Games" },
+  { image: "/image3.png", title: "Association Room" },
+  { image: "/image4.png", title: "Gym" },
+  { image: "/image5.png", title: "Guest Bedroom" },
+  { image: "/image6.png", title: "Rooftop Children's Play Area" },
+  { image: "/image7.png", title: "Video Door Phone" },
+  { image: "/image8.png", title: "Covered Car Parking" },
+  { image: "/image9.png", title: "Potable Water" },
+  { image: "/image10.png", title: "Power Backup Genset" },
+  { image: "/image11.png", title: "Private Terrace" },
+  { image: "/image12.png", title: "Closed Circuit Television (CCTV)" },
+  { image: "/image13.png", title: "Hygiene Bay" },
+  { image: "/image18.png", title: "Lift" },
+  { image: "/image14.png", title: "100% Vastu Compliance" },
+  { image: "/image15.png", title: "Common Area System Plants" },
+  { image: "/image16.png", title: "EV Charging Point" },
+  { image: "/image17.png", title: "Terrace Sitout" },
+];
 const slides = [
   {
     image: "/banner.png",
@@ -642,32 +549,31 @@ const years = ref(0);
 const projects = ref(0);
 const homes = ref(0);
 const staff = ref(0);
+function animateCount(refVar, target, duration = 2000) {
+  const start = 0;
+  const range = target - start;
+  let startTime = null;
 
-// New version: uses time-based animation
-const animateCounter = (target, refVar, duration = 1000) => {
-  const start = performance.now();
-
-  const update = (timestamp) => {
-    const elapsed = timestamp - start;
+  const step = (currentTime) => {
+    if (!startTime) startTime = currentTime;
+    const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1); // from 0 to 1
-    refVar.value = Math.floor(progress * target);
+    refVar.value = Math.floor(progress * range + start);
 
     if (progress < 1) {
-      requestAnimationFrame(update);
+      requestAnimationFrame(step);
     } else {
       refVar.value = target; // ensure it ends cleanly
     }
   };
-
-  requestAnimationFrame(update);
-};
-
+  requestAnimationFrame(step);
+}
 onMounted(() => {
   AOS.init();
-  animateCounter(20, years, 800); // 800ms duration
-  animateCounter(100, projects, 800);
-  animateCounter(1000, homes, 800);
-  animateCounter(150, staff, 800);
+  animateCount(years, 20, 800); // 800ms duration
+  animateCount(projects, 100, 800);
+  animateCount(homes, 1000, 800);
+  animateCount(staff, 150, 800);
 });
 
 const features = [
