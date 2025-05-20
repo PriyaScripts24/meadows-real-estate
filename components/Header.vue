@@ -1,39 +1,21 @@
 <template>
   <header class="bg-white text-[#123B78] fixed top-0 z-50 w-full shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center"
+    >
       <!-- Logo -->
-      <div class="flex items-center space-x-2 justify-center">
+      <div class="flex items-center justify-center">
         <img
           src="/public/Meadows Logo.png"
           alt="logo"
-          class="md:w-[170px] w-[120px]"
+          class="w-[100px] sm:w-[150px] md:w-[170px]"
         />
       </div>
 
-      <!-- Hamburger Icon (Mobile) -->
-      <!-- <button class="md:hidden relative w-6 h-6" @click="isOpen = !isOpen">
-        <span
-          :class="[
-            'block absolute h-0.5 w-full bg-[#123B78] transform transition duration-300 ease-in-out',
-            isOpen ? 'rotate-45 top-2.5' : 'top-0',
-          ]"
-        ></span>
-        <span
-          :class="[
-            'block absolute h-0.5 w-full bg-[#123B78] transition-all duration-300 ease-in-out',
-            isOpen ? 'opacity-0' : 'top-2.5',
-          ]"
-        ></span>
-        <span
-          :class="[
-            'block absolute h-0.5 w-full bg-[#123B78] transform transition duration-300 ease-in-out',
-            isOpen ? '-rotate-45 top-2.5' : 'top-5',
-          ]"
-        ></span>
-      </button> -->
-
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-20 text-lg items-center">
+      <nav
+        class="hidden lg:flex space-x-6 xl:space-x-12 2xl:space-x-20 text-sm lg:text-base xl:text-lg items-center"
+      >
         <a
           href="#hero"
           class="nav-link"
@@ -64,24 +46,26 @@
         >
 
         <a
-          href="tel:+9189398 56789"
-          class="bg-[#E92A7B] text-white text-sm font-semibold shadow-lg px-6 py-3 rounded-lg hover:bg-[#EE6FA8]"
+          href="tel:+918939856789"
+          class="bg-[#E92A7B] text-white text-xs sm:text-sm font-semibold shadow-lg px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-[#EE6FA8]"
         >
           Enquire Now
         </a>
       </nav>
     </div>
 
-    <!-- Mobile Navigation -->
-    <!-- Mobile Action Bar (only visible on mobile screens) -->
+    <!-- Mobile Action Bar -->
     <div
-      class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden bg-[#8B2A55] text-white rounded-full border-2 border-yellow-400 px-6 py-3 w-[90%] max-w-sm shadow-lg flex justify-between items-center text-center"
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden bg-[#8B2A55] text-white rounded-full border-2 border-yellow-400 px-3 sm:px-6 py-2 sm:py-3 w-[90%] max-w-sm shadow-lg flex justify-between items-center text-center"
     >
       <!-- Call Us -->
-      <a href="tel:+918939856789" class="flex flex-col items-center text-xs">
+      <a
+        href="tel:+918939856789"
+        class="flex flex-col items-center text-[10px] sm:text-xs"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 mb-1"
+          class="h-6 w-6 sm:h-8 sm:w-8 mb-1"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -97,10 +81,13 @@
       </a>
 
       <!-- Go To Top -->
-      <button @click="scrollToTop" class="flex flex-col items-center text-xs">
+      <button
+        @click="scrollToTop"
+        class="flex flex-col items-center text-[10px] sm:text-xs"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 mb-1"
+          class="h-5 w-5 sm:h-6 sm:w-6 mb-1"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -119,11 +106,11 @@
       <a
         @click="scrollToTop"
         href="#"
-        class="flex flex-col items-center text-xs"
+        class="flex flex-col items-center text-[10px] sm:text-xs"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 mb-1"
+          class="h-5 w-5 sm:h-6 sm:w-6 mb-1"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -142,23 +129,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-const isOpen = ref(false);
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 </script>
 
 <style scoped>
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.3s ease;
-}
-.slide-enter-from,
-.slide-leave-to {
-  transform: translateX(-100%);
-}
-
 .nav-link {
   position: relative;
   padding-bottom: 4px;
@@ -173,7 +149,7 @@ function scrollToTop() {
   bottom: -2px;
   width: 0%;
   height: 3px;
-  background-color: #f06292; /* Stylish pink */
+  background-color: #f06292;
   transition: width 0.3s ease;
   border-radius: 2px;
 }

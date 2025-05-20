@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     head: {
       title:
         "ATH Meadows | Premium 2 & 3 BHK Apartments in Madambakkam, Chennai",
+
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
@@ -42,7 +43,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "public/gif",
-          href: "/favicon.gif",
+          href: "/favicon.png",
           sizes: "48x48",
         },
         {
@@ -56,6 +57,12 @@ export default defineNuxtConfig({
       script: [
         {
           src: "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js",
+          defer: true,
+        },
+
+        {
+          src: "https://www.google.com/recaptcha/api.js",
+          async: true,
           defer: true,
         },
       ],

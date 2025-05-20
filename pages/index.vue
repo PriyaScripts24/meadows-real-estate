@@ -6,8 +6,7 @@
     </section>
     <!-- hero section -->
 
-    <section id="hero" class="relative min-h-screen overflow-hidden mt-10">
-      <!-- Swiper Background -->
+    <section id="hero" class="relative min-h-screen overflow-hidden mt-14">
       <Swiper
         :modules="[Autoplay]"
         :autoplay="{ delay: 2200, disableOnInteraction: false }"
@@ -20,43 +19,38 @@
         </SwiperSlide>
       </Swiper>
 
-      <!-- Overlay -->
       <div class="absolute inset-0 bg-transparent z-10"></div>
 
-      <!-- Content -->
       <div
         class="relative z-20 w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:px-10"
       >
-        <!-- Title Area (changes per slide) -->
-        <div class="lg:-top-[720px] lg:flex w-full lg:absolute lg:px-20">
+        <div
+          class="lg:-top-[520px] lg:flex w-full lg:absolute lg:px-20 md:-top-[400px] md:mt-2 md:absolute md:flex xl:-top-[720px] md:px-4 2xl:-top-[900px]"
+        >
           <div
             data-aos="fade-right"
             data-aos-delay="200"
-            class="w-full md:text-left mt-10 md:mt-0 lg:absolute lg:left-0 lg:w-[50%] lg:h-[28.6%] lg:flex lg:p-6"
+            class="w-full md:text-left mt-10 md:mt-0 lg:absolute lg:left-0 lg:w-[30%] lg:h-[28.6%] lg:flex lg:p-2"
           >
             <div
-              class="flex flex-col gap-4 line-clamp-3 w-full lg:w-[60%] lg:items-start lg:justify-start items-start justify-start px-4 lg:px-0"
+              class="flex flex-col gap-4 w-full md:w-[50%] lg:w-[90%] lg:items-start lg:justify-start items-start justify-start px-4 lg:px-0"
             >
-              <h2 class="text-[#3E2D7E] text-lg lg:text-2xl font-semibold">
+              <h2
+                class="text-[#3E2D7E] text-lg md:text-sm lg:text-md xl:text-xl 2xl:text-2xl font-semibold"
+              >
                 {{ slides[currentIndex].title }}
               </h2>
-              <h2 class="text-black text-md lg:text-2xl font-semibold">
+              <h2
+                class="text-black text-md lg:text-md md:text-sm xl:text-xl 2xl:text-2xl font-semibold"
+              >
                 {{ slides[currentIndex].subtitle }}
               </h2>
             </div>
           </div>
 
-          <!-- Mobile-only Image -->
-          <!-- <div class="lg:hidden w-full overflow-hidden rounded-xl">
-          <img
-            :src="slides[currentIndex].image"
-            class="w-full object-cover object-[30%_center]"
-          />
-        </div> -->
-
-          <!-- Form (unchanged) -->
           <div
-            class="w-full lg:w-[70%] md:min-w-[20px] max-w-[400px] ml-auto md:mt-5"
+            @submit.prevent="handleSubmit"
+            class="w-full lg:w-[35%] md:w-[30%] min-w-[250px] max-h-[280px] max-w-[400px] ml-auto md:mb-5"
             data-aos="fade-left"
             data-aos-delay="200"
           >
@@ -64,7 +58,7 @@
               class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8"
             >
               <h2
-                class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
+                class="text-2xl md:text-2xl font-semibold mb-6 text-center text-[#3E2D7E]"
               >
                 Register now
               </h2>
@@ -93,56 +87,16 @@
                   <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                   <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
                 </select>
+                <div
+                  class="g-recaptcha my-4"
+                  data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                ></div>
+
                 <button
                   type="submit"
                   class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
                 >
                   Enquire Now
-                </button>
-              </form>
-            </div>
-          </div>
-          <!-- Enquiry Modal -->
-          <div
-            v-if="showModal"
-            class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-          >
-            <div
-              class="bg-white max-w-md w-full p-6 rounded-xl shadow-2xl relative"
-            >
-              <button
-                @click="showModal = false"
-                class="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"
-              >
-                &times;
-              </button>
-              <h2
-                class="text-2xl font-semibold mb-4 text-[#3E2D7E] text-center"
-              >
-                Enquire Now
-              </h2>
-              <form class="space-y-4">
-                <input type="text" placeholder="Full Name" class="form-input" />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  class="form-input"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  class="form-input"
-                />
-                <textarea
-                  rows="4"
-                  placeholder="Message / Inquiry"
-                  class="form-input resize-none"
-                ></textarea>
-                <button
-                  type="submit"
-                  class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
-                >
-                  Submit
                 </button>
               </form>
             </div>
@@ -153,82 +107,89 @@
 
     <!-- about section -->
 
-    <section class="px-6 -mt-10 md:mt-10" id="about">
+    <section
+      id="about"
+      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:-mt-[420px] lg:-mt-[270px] lg:flex-row xl:-mt-[120px] -mt-20 2xl:mt-10 2xl:px-20"
+    >
+      <!-- Text Content Section -->
       <div
-        class="flex flex-col md:flex-row justify-around items-center gap-8 md:gap-12"
+        class="w-full flex flex-col gap-4"
+        data-aos="fade-left"
+        data-aos-delay="200"
       >
-        <!-- Image Section -->
-        <div class="w-full md:w-1/2" data-aos="fade-right" data-aos-delay="200">
-          <img
-            src="/about.jpg"
-            alt="image"
-            class="w-full h-auto object-cover object-center rounded-xl shadow-md"
-          />
-        </div>
+        <h2 class="font-semibold text-2xl md:text-3xl text-[#3E2D7E]">
+          Your Quiet Corner in a Vibrant City
+        </h2>
+        <p class="text-gray-600 text-base md:text-lg">
+          2 & 3 BHK Premium Apartments in Madambakkam Surrounded by Nature.
+        </p>
+        <p class="text-gray-600 text-base md:text-lg">
+          ATH Meadows is a premium residential apartment project nestled in the
+          calm and green surroundings of Madambakkam, Chennai. Designed for
+          those who value a blend of nature and modern comfort, these 2 & 3 BHK
+          apartments offer elegant architecture, lush landscapes, and
+          lifestyle-enhancing amenities. With easy access to key destinations
+          like Tambaram and Medavakkam, ATH Meadows brings together convenience,
+          serenity, and contemporary urban living in one harmonious space.
+        </p>
+      </div>
 
-        <!-- Text Content Section -->
-        <div
-          class="w-full md:w-1/2 flex flex-col gap-4"
-          data-aos="fade-left"
-          data-aos-delay="200"
-        >
-          <h2 class="font-semibold text-2xl md:text-3xl text-[#3E2D7E]">
-            Your Quiet Corner in a Vibrant City
-          </h2>
-          <p class="text-gray-600 text-base md:text-lg">
-            2 & 3 BHK Premium Apartments in Madambakkam Surrounded by Nature.
-          </p>
-          <p class="text-gray-600 text-base md:text-lg">
-            ATH Meadows is a premium residential apartment project nestled in
-            the calm and green surroundings of Madambakkam, Chennai. Designed
-            for those who value a blend of nature and modern comfort, these 2 &
-            3 BHK apartments offer elegant architecture, lush landscapes, and
-            lifestyle-enhancing amenities. With easy access to key destinations
-            like Tambaram and Medavakkam, ATH Meadows brings together
-            convenience, serenity, and contemporary urban living in one
-            harmonious space.
-          </p>
-        </div>
+      <!-- Image Section -->
+      <div class="w-full" data-aos="fade-right" data-aos-delay="200">
+        <img
+          src="/about.jpg"
+          alt="ATH Meadows apartments"
+          class="w-full h-auto object-cover object-center rounded-xl shadow-md"
+        />
       </div>
     </section>
 
     <!-- Project Amenities -->
-    <section class="py-1 overflow-hidden" id="amenities">
-      <div class="mt-10" data-aos="fade-down" data-aos-delay="200">
+    <section id="amenities" class="overflow-hidden">
+      <div
+        class="container mx-auto px-4"
+        data-aos="fade-down"
+        data-aos-delay="200"
+      >
         <div
-          class="flex flex-col md:flex-row items-center justify-center gap-6"
+          class="flex flex-col-reverse md:flex xl:flex-row-reverse lg:gap-10 items-center justify-between gap-10 2xl:gap-40"
         >
-          <div class="flex flex-wrap justify-center md:gap-10 gap-10">
+          <!-- Text Section -->
+          <div
+            class="text-center md:text-left"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <h2 class="text-2xl md:text-xl font-semibold text-[#3E2D7E]">
+              Your Canvas,<br />Your Masterpiece.
+            </h2>
+          </div>
+
+          <!-- Divider for md+ screens -->
+          <div class="hidden xl:block w-[2px] bg-green-600 h-32"></div>
+
+          <!-- Amenities Grid -->
+          <div
+            class="w-full md:w-3/4 lg:w-full xl:w-full flex flex-wrap justify-center xl:gap-10 lg:gap-10"
+          >
             <div
               v-for="(feature, index) in features"
               :key="index"
-              class="flex flex-col items-center text-center w-40"
+              class="flex flex-col items-center text-center w-32 md:w-40"
             >
               <img
                 :src="feature.image"
                 :alt="feature.title"
-                class="h-40 mb-4"
+                class="h-28 md:h-40 mb-4 object-contain"
               />
               <p
-                class="text-md text-[#EE6FA8] leading-snug"
+                class="text-sm md:text-md text-[#EE6FA8] leading-snug"
                 data-aos="fade-right"
                 data-aos-delay="200"
               >
                 {{ feature.title }}
               </p>
             </div>
-          </div>
-
-          <div class="hidden md:block w-[2px] bg-green-600 h-32 mx-4"></div>
-
-          <div
-            class="text-center md:text-left md:w-64"
-            data-aos="fade-left"
-            data-aos-delay="200"
-          >
-            <h2 class="text-xl md:text-3xl font-semibold text-[#3E2D7E]">
-              Your Canvas,<br />Your Masterpiece.
-            </h2>
           </div>
         </div>
       </div>
@@ -302,7 +263,7 @@
         </div>
       </div>
     </section> -->
-    <section class="py-10 px-4 md:px-10">
+    <section class="py-10 px-4 md:px-10 2xl:px-20 2xl:mt-4">
       <h2
         class="text-3xl font-semibold text-[#3E2D7E] text-center mb-6"
         data-aos="fade-left"
@@ -311,25 +272,21 @@
         Amenities
       </h2>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 px-10 md:px-0"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 px-10 md:px-0"
       >
         <div
+          data-aos="fade-left"
+          data-aos-delay="200"
           v-for="(amenity, index) in amenities"
           :key="index"
-          class="flex items-center gap-4"
+          class="flex items-center gap-4 border border-none rounded-4xl shadow-md hover:shadow-lg transition duration-3000 ease-in-out"
         >
           <img
-            data-aos="fade-up"
-            data-aos-delay="200"
             :src="amenity.image"
             :alt="amenity.title"
             class="w-[60px] h-[60px]"
           />
-          <p
-            class="font-semibold text-md"
-            data-aos="fade-down"
-            data-aos-delay="200"
-          >
+          <p class="font-semibold text-md">
             {{ amenity.title }}
           </p>
         </div>
@@ -337,36 +294,42 @@
     </section>
     <!-- Location advantage with map -->
 
-    <section class="px-20 py-10">
+    <section class="lg:px-20 px-10 py-10 2xl:px-20 2xl:mt-4">
       <div
-        class="flex flex-col md:flex-row justify-between items-center gap-10"
+        class="flex flex-col md:flex-row justify-between items-center xl:gap-10 lg:gap-15 md:gap-10 gap-10 2xl:px-40 2xl:gap-0"
       >
         <!-- Text Block -->
         <div
-          class="w-full md:w-1/3 space-y-4"
+          class="w-full md:w-1/2 xl:w-1/3 space-y-4 2xl:w-1/2"
           data-aos="fade-right"
           data-aos-delay="200"
         >
-          <h2 class="text-xl md:text-2xl font-semibold text-[#3E2D7E]">
+          <h2
+            class="text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-[#3E2D7E]"
+          >
             The Peace You Seek Is Just a Step Away
           </h2>
-          <p class="text-md text-gray-700">
+          <p class="text-lg text-gray-700">
             Tucked in the heart of Madambakkam, ATH Meadows offers a life woven
             with calm, comfort and a quiet connection to nature. With
             thoughtfully crafted spaces and a community built for serenity, this
             is more than just a home. It is a gentle return to everything you
             love.
           </p>
-          <h4 class="text-lg font-semibold text-[#3E2D7E]">
+          <h4 class="text-xl font-semibold text-[#3E2D7E]">
             Register now to experience it first-hand.
           </h4>
-          <p class="text-md text-gray-700">
+          <p class="text-lg text-gray-700">
             A peaceful way of living is waiting. Let it begin with you.
           </p>
         </div>
 
         <!-- Image Block -->
-        <div class="w-full md:w-2/4">
+        <div
+          class="w-full md:w-2/4 2xl:w-1/3"
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
           <img
             data-aos="fade-left"
             data-aos-delay="200"
@@ -431,44 +394,61 @@
         </div>
 
         <div
-          class="w-full md:w-1/3 bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-6 text-black"
+          class="w-full md:w-1/2 rounded-2xl shadow-2xl text-black"
           data-aos="flip-right"
           data-aos-delay="200"
         >
-          <div class="w-full max-w-md p-4 md:p-10 mx-auto">
-            <h2
-              class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
+          <div
+            class="w-full lg:w-[70%] md:min-w-[20px] max-w-[400px] ml-auto md:mt-5"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8"
             >
-              Register now
-            </h2>
-            <form class="space-y-4">
-              <input
-                type="text"
-                placeholder="Full Name"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              />
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              />
-              <textarea
-                rows="4"
-                placeholder="Message / Inquiry"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-              ></textarea>
-              <button
-                type="submit"
-                class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+              <h2
+                class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
               >
-                Enquire Now
-              </button>
-            </form>
+                Register now
+              </h2>
+              <form class="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                />
+                <select
+                  name="villa"
+                  id="land"
+                  placeholder="Select Preference"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                >
+                  <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
+                  <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
+                </select>
+                <div
+                  class="g-recaptcha my-4"
+                  data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                ></div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                >
+                  Enquire Now
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -477,19 +457,6 @@
     <section id="footer">
       <Footer />
     </section>
-    <!-- Mobile Sticky Call Now Button -->
-    <!-- <section
-      class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-gray-300 shadow-lg overflow-hidden"
-    >
-      <div class="flex justify-center items-center gap-4">
-        <a
-          href="tel:+918939856789"
-          class="flex-1 text-white text-center font-semibold bg-[#E92A7B] hover:bg-[#EE6FA8] rounded-sm text-xl py-4"
-        >
-          Call Now
-        </a>
-      </div>
-    </section> -->
   </div>
 </template>
 <script setup>
@@ -575,6 +542,28 @@ onMounted(() => {
   animateCount(homes, 1000, 800);
   animateCount(staff, 150, 800);
 });
+async function handleSubmit() {
+  const response = grecaptcha.getResponse();
+
+  if (!response) {
+    alert("Please verify you're not a robot.");
+    return;
+  }
+
+  const res = await fetch("/api/recaptcha", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: response }),
+  });
+
+  const data = await res.json();
+  if (data.success) {
+    // Proceed with form submission logic
+    alert("Verified! Form submitted.");
+  } else {
+    alert("reCAPTCHA failed.");
+  }
+}
 
 const features = [
   {
