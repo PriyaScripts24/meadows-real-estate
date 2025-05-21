@@ -353,7 +353,7 @@
 
         <!-- Image Block -->
         <div
-          class="w-full md:w-2/4 2xl:w-1/3"
+          class="w-[350px] md:w-[600px] lg:w-full xl:w-[700px] 2xl:w-1/2"
           data-aos="fade-left"
           data-aos-delay="200"
         >
@@ -362,7 +362,7 @@
             data-aos-delay="200"
             src="/map.png"
             alt="map"
-            class="w-full h-auto rounded-xl shadow-md object-cover object-center"
+            class="w-full h-auto rounded-xl shadow-md object-cover object-center p-5"
           />
         </div>
       </div>

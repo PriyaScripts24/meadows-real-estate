@@ -56,7 +56,7 @@
 
     <!-- Mobile Action Bar -->
     <div
-      class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden bg-[#3E2D7E] text-white rounded-full border-2 border-yellow-400 px-3 sm:px-6 py-2 sm:py-3 w-[90%] max-w-sm shadow-lg flex justify-between items-center text-center"
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden bg-[#E92A7B] text-white rounded-full border-2 border-yellow-400 px-3 sm:px-6 py-2 sm:py-3 w-[90%] max-w-sm shadow-lg flex justify-between items-center text-center"
     >
       <!-- Call Us -->
       <a
