@@ -56,49 +56,31 @@
 
     <!-- Mobile Action Bar -->
     <div
-      class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden bg-[#8B2A55] text-white rounded-full border-2 border-yellow-400 px-3 sm:px-6 py-2 sm:py-3 w-[90%] max-w-sm shadow-lg flex justify-between items-center text-center"
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden bg-[#3E2D7E] text-white rounded-full border-2 border-yellow-400 px-3 sm:px-6 py-2 sm:py-3 w-[90%] max-w-sm shadow-lg flex justify-between items-center text-center"
     >
       <!-- Call Us -->
       <a
         href="tel:+918939856789"
-        class="flex flex-col items-center text-[10px] sm:text-xs"
+        class="flex flex-col items-center text-[14px] sm:text-xs"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 sm:h-8 sm:w-8 mb-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M3 5a16 16 0 0016 16l3-3a2 2 0 00-1.5-3.4c-1.6.3-3.2-.5-4.7-2.1s-2.4-3.1-2.1-4.7a2 2 0 00-3.4-1.5l-3 3z"
-          />
-        </svg>
+        <img
+          src="/public/call.png"
+          alt="call"
+          class="h-5 w-5 sm:h-6 sm:w-6 mb-1"
+        />
         Call Us
       </a>
 
       <!-- Go To Top -->
       <button
         @click="scrollToTop"
-        class="flex flex-col items-center text-[10px] sm:text-xs"
+        class="flex flex-col items-center text-[14px] sm:text-xs"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5 sm:h-6 sm:w-6 mb-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 15l7-7 7 7"
-          />
-        </svg>
+        <img
+          src="/public/arrow (2).png"
+          alt="arrow"
+          class="h-4 w-5 sm:h-6 sm:w-6 mb-1"
+        />
         Go To Top
       </button>
 
@@ -106,22 +88,13 @@
       <a
         @click="scrollToTop"
         href="#"
-        class="flex flex-col items-center text-[10px] sm:text-xs"
+        class="flex flex-col items-center text-[14px] sm:text-xs"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
+        <img
+          src="/public/enquir.png"
+          alt="enquire"
           class="h-5 w-5 sm:h-6 sm:w-6 mb-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
-          />
-        </svg>
+        />
         Enquiry
       </a>
     </div>

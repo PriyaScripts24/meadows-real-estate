@@ -47,10 +47,10 @@
           :modules="[Autoplay]"
           :autoplay="{ delay: 2200, disableOnInteraction: false }"
           :loop="true"
-          class="absolute inset-0 z-0 w-full h-full"
+          class="absolute inset-0 z-0 w-full"
         >
           <SwiperSlide v-for="(image, index) in mobileImages" :key="index">
-            <img :src="image" class="w-full h-full overflow-hidden" />
+            <img :src="image" class="w-full overflow-hidden" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -61,7 +61,7 @@
         class="relative z-20 w-full flex flex-col items-center justify-between gap-8 px-4 md:px-8 lg:px-0 md:flex-col"
       >
         <div
-          class="w-full flex flex-col lg:flex-row items-start justify-between lg:gap-10 mt-10 px-4 md:px-8 lg:-top-[800px] lg:px-4 lg:absolute xl:-top-[870px]"
+          class="w-full flex flex-col lg:flex-row items-start justify-between lg:gap-10 -mt-94 md:mt-10 px-4 md:px-8 lg:-top-[800px] lg:px-4 lg:absolute xl:-top-[870px]"
         >
           <!-- Title and Subtitle for Desktop (left side) -->
           <div
@@ -136,7 +136,7 @@
 
     <section
       id="about"
-      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:-mt-[20px] lg:-mt-[10px] lg:flex-row xl:-mt-[120px] 2xl:mt-0 2xl:px-20 bg-[#E5E1ED]"
+      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:mt-5 lg:-mt-[10px] lg:flex-row xl:mt-[1px] 2xl:mt-0 2xl:px-20 bg-[#E5E1ED]"
     >
       <!-- Text Content Section -->
       <div
