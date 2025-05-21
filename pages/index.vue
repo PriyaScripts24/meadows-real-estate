@@ -7,62 +7,91 @@
     <!-- hero section -->
 
     <section id="hero" class="relative min-h-screen overflow-hidden mt-14">
-      <Swiper
-        :modules="[Autoplay]"
-        :autoplay="{ delay: 2200, disableOnInteraction: false }"
-        :loop="true"
-        class="absolute inset-0 z-0 w-full h-full"
-        @slideChange="onSlideChange"
-      >
-        <SwiperSlide v-for="(slide, index) in slides" :key="index">
-          <img :src="slide.image" class="w-full h-full object-cover" />
-        </SwiperSlide>
-      </Swiper>
+      <!-- Desktop & Laptop View (lg and up) -->
+      <div class="hidden lg:block relative w-full h-screen">
+        <!-- Title & Subtitle -->
+        <div
+          data-aos="fade-right"
+          data-aos-delay="200"
+          class="absolute left-0 w-[30%] h-[28.6%] flex p-2"
+        >
+          <div
+            class="flex flex-col gap-4 w-full items-start justify-start px-4"
+          >
+            <h2 class="text-[#3E2D7E] text-xl 2xl:text-2xl font-semibold">
+              {{ slides[currentIndex].title }}
+            </h2>
+            <h2 class="text-black text-xl 2xl:text-2xl font-semibold">
+              {{ slides[currentIndex].subtitle }}
+            </h2>
+          </div>
+        </div>
+
+        <!-- Swiper for desktop -->
+        <Swiper
+          :modules="[Autoplay]"
+          :autoplay="{ delay: 2200, disableOnInteraction: false }"
+          :loop="true"
+          class="absolute inset-0 z-0 w-full h-full"
+          @slideChange="onSlideChange"
+        >
+          <SwiperSlide v-for="(slide, index) in slides" :key="index">
+            <img :src="slide.image" class="w-full h-full object-cover" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      <!-- Mobile & Tablet View (below lg) -->
+      <div class="block lg:hidden relative w-full h-screen">
+        <Swiper
+          :modules="[Autoplay]"
+          :autoplay="{ delay: 2200, disableOnInteraction: false }"
+          :loop="true"
+          class="absolute inset-0 z-0 w-full h-full"
+        >
+          <SwiperSlide v-for="(image, index) in mobileImages" :key="index">
+            <img :src="image" class="w-full h-full overflow-hidden" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
 
       <div class="absolute inset-0 bg-transparent z-10"></div>
 
       <div
-        class="relative z-20 w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:px-10"
+        class="relative z-20 w-full flex flex-col items-center justify-between gap-8 px-4 md:px-8 lg:px-0 md:flex-col"
       >
         <div
-          class="lg:-top-[520px] lg:flex w-full lg:absolute lg:px-20 md:-top-[400px] md:mt-2 md:absolute md:flex xl:-top-[720px] md:px-4 2xl:-top-[900px]"
+          class="w-full flex flex-col lg:flex-row items-start justify-between lg:gap-10 mt-10 px-4 md:px-8 lg:-top-[800px] lg:px-4 lg:absolute xl:-top-[870px]"
         >
+          <!-- Title and Subtitle for Desktop (left side) -->
           <div
             data-aos="fade-right"
             data-aos-delay="200"
-            class="w-full md:text-left mt-10 md:mt-0 lg:absolute lg:left-0 lg:w-[30%] lg:h-[28.6%] lg:flex lg:p-2"
+            class="hidden lg:flex flex-col gap-4 w-full lg:w-[40%] px-4"
           >
-            <div
-              class="flex flex-col gap-4 w-full md:w-[50%] lg:w-[90%] lg:items-start lg:justify-start items-start justify-start px-4 lg:px-0"
-            >
-              <h2
-                class="text-[#3E2D7E] text-lg md:text-sm lg:text-md xl:text-xl 2xl:text-2xl font-semibold"
-              >
-                {{ slides[currentIndex].title }}
-              </h2>
-              <h2
-                class="text-black text-md lg:text-md md:text-sm xl:text-xl 2xl:text-2xl font-semibold"
-              >
-                {{ slides[currentIndex].subtitle }}
-              </h2>
-            </div>
+            <h2 class="text-[#3E2D7E] text-xl 2xl:text-2xl font-semibold">
+              {{ slides[currentIndex].title }}
+            </h2>
+            <h2 class="text-black text-xl 2xl:text-2xl font-semibold">
+              {{ slides[currentIndex].subtitle }}
+            </h2>
           </div>
 
+          <!-- Register Form (right side in lg, below in mobile) -->
           <div
-            @submit.prevent="handleSubmit"
-            class="w-full lg:w-[35%] md:w-[30%] min-w-[250px] max-h-[280px] max-w-[400px] ml-auto md:mb-5"
             data-aos="fade-left"
             data-aos-delay="200"
+            class="w-full lg:w-1/4"
           >
             <div
-              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8"
+              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-4 md:p-6 lg:p-8"
             >
               <h2
-                class="text-2xl md:text-2xl font-semibold mb-6 text-center text-[#3E2D7E]"
+                class="text-2xl font-semibold mb-6 text-center text-[#3E2D7E]"
               >
                 Register now
               </h2>
-              <form class="space-y-4">
+              <form @submit.prevent="handleSubmit" class="space-y-4">
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -81,7 +110,6 @@
                 <select
                   name="villa"
                   id="land"
-                  placeholder="Select Preference"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
                 >
                   <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
@@ -91,7 +119,6 @@
                   class="g-recaptcha my-4"
                   data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
                 ></div>
-
                 <button
                   type="submit"
                   class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
@@ -109,7 +136,7 @@
 
     <section
       id="about"
-      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:-mt-[420px] lg:-mt-[270px] lg:flex-row xl:-mt-[120px] -mt-20 2xl:mt-10 2xl:px-20"
+      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:-mt-[20px] lg:-mt-[10px] lg:flex-row xl:-mt-[120px] 2xl:mt-10 2xl:px-20"
     >
       <!-- Text Content Section -->
       <div
@@ -296,11 +323,11 @@
 
     <section class="lg:px-20 px-10 py-10 2xl:px-20 2xl:mt-4">
       <div
-        class="flex flex-col md:flex-row justify-between items-center xl:gap-10 lg:gap-15 md:gap-10 gap-10 2xl:px-40 2xl:gap-0"
+        class="flex flex-col md:flex-col justify-between items-center xl:gap-10 lg:gap-15 md:gap-10 gap-10 2xl:px-40 2xl:gap-0 lg:flex-row"
       >
         <!-- Text Block -->
         <div
-          class="w-full md:w-1/2 xl:w-1/3 space-y-4 2xl:w-1/2"
+          class="w-full xl:w-1/3 space-y-4 2xl:w-1/2"
           data-aos="fade-right"
           data-aos-delay="200"
         >
@@ -505,6 +532,8 @@ const slides = [
       "Curated amenities that bring wellness, wonder and everyday ease.",
   },
 ];
+
+const mobileImages = ["/banner1.png", "/banners2.png", "/banner3.png"];
 
 const currentIndex = ref(0);
 
