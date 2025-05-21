@@ -84,7 +84,7 @@
             class="w-full lg:w-1/4"
           >
             <div
-              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-4 md:p-6 lg:p-8"
+              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-2 md:p-6 lg:p-8 md:px-20 lg:px-5 xl:px-8"
             >
               <h2
                 class="text-2xl font-semibold mb-6 text-center text-[#3E2D7E]"
@@ -116,7 +116,7 @@
                   <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
                 </select>
                 <div
-                  class="g-recaptcha my-4"
+                  class="g-recaptcha"
                   data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
                 ></div>
                 <button
@@ -136,7 +136,7 @@
 
     <section
       id="about"
-      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:-mt-[20px] lg:-mt-[10px] lg:flex-row xl:-mt-[120px] 2xl:mt-10 2xl:px-20"
+      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:-mt-[20px] lg:-mt-[10px] lg:flex-row xl:-mt-[120px] 2xl:mt-0 2xl:px-20 bg-[#E5E1ED]"
     >
       <!-- Text Content Section -->
       <div
@@ -299,7 +299,7 @@
         Amenities
       </h2>
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 px-10 md:px-0"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 px-10 md:px-10 xl:px-20"
       >
         <div
           data-aos="fade-left"
@@ -321,7 +321,7 @@
     </section>
     <!-- Location advantage with map -->
 
-    <section class="lg:px-20 px-10 py-10 2xl:px-20 2xl:mt-4">
+    <section class="lg:px-20 px-10 py-10 2xl:px-20 2xl:mt-4 bg-[#E5E1ED]">
       <div
         class="flex flex-col md:flex-col justify-between items-center xl:gap-10 lg:gap-15 md:gap-10 gap-10 2xl:px-40 2xl:gap-0 lg:flex-row"
       >
