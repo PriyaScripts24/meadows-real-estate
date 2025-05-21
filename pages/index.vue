@@ -15,7 +15,7 @@
           data-aos-delay="200"
           class="absolute left-0 w-[30%] h-[28.6%] flex p-2"
         >
-          <div
+          <!-- <div
             class="flex flex-col gap-4 w-full items-start justify-start px-4"
           >
             <h2 class="text-[#3E2D7E] text-xl 2xl:text-2xl font-semibold">
@@ -24,7 +24,7 @@
             <h2 class="text-black text-xl 2xl:text-2xl font-semibold">
               {{ slides[currentIndex].subtitle }}
             </h2>
-          </div>
+          </div> -->
         </div>
 
         <!-- Swiper for desktop -->
@@ -36,7 +36,7 @@
           @slideChange="onSlideChange"
         >
           <SwiperSlide v-for="(slide, index) in slides" :key="index">
-            <img :src="slide.image" class="w-full h-full object-cover" />
+            <img :src="slide.image" class="w-full object-cover" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -61,7 +61,7 @@
         class="relative z-20 w-full flex flex-col items-center justify-between gap-8 px-4 md:px-8 lg:px-0 md:flex-col"
       >
         <div
-          class="w-full flex flex-col lg:flex-row items-start justify-between lg:gap-10 -mt-94 md:mt-10 px-4 md:px-8 lg:-top-[800px] lg:px-4 lg:absolute xl:-top-[870px]"
+          class="w-full flex flex-col lg:flex-row items-start justify-between lg:gap-10 -mt-94 md:mt-10 px-4 md:px-8 lg:-top-[830px] lg:px-4 lg:absolute xl:-top-[870px]"
         >
           <!-- Title and Subtitle for Desktop (left side) -->
           <div
@@ -81,7 +81,7 @@
           <div
             data-aos="fade-left"
             data-aos-delay="200"
-            class="w-full lg:w-1/4"
+            class="w-full lg:w-1/3"
           >
             <div
               class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-2 md:p-6 lg:p-8 md:px-20 lg:px-5 xl:px-8"
@@ -136,7 +136,7 @@
 
     <section
       id="about"
-      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:mt-5 lg:-mt-[10px] lg:flex-row xl:mt-[1px] 2xl:mt-0 2xl:px-20 bg-[#E5E1ED]"
+      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:mt-5 lg:-mt-[330px] lg:flex-row xl:-mt-[210px] 2xl:mt-0 2xl:px-20 bg-[#E5E1ED]"
     >
       <!-- Text Content Section -->
       <div
@@ -353,7 +353,7 @@
 
         <!-- Image Block -->
         <div
-          class="w-[350px] md:w-[600px] lg:w-full xl:w-[700px] 2xl:w-1/2"
+          class="w-[350px] md:w-[600px] lg:w-full xl:w-[700px] 2xl:w-1/2 bg-white rounded-2xl shadow-lg"
           data-aos="fade-left"
           data-aos-delay="200"
         >
@@ -516,20 +516,13 @@ const amenities = [
 ];
 const slides = [
   {
-    image: "/banner.png",
-    title: "Where Petals Bloom & Life Unfolds",
-    subtitle: "Step into a serene world crafted for graceful living.",
+    image: "/banner4.png",
   },
   {
-    image: "/banner2.jpeg",
-    title: "Crafted Spaces, Thoughtful Touches",
-    subtitle: "Modern homes embraced by gardens, peace, and poetry.",
+    image: "/banner5.png",
   },
   {
-    image: "/banner3.jpeg",
-    title: "A Bloom of Comforts, A Flutter of Joy",
-    subtitle:
-      "Curated amenities that bring wellness, wonder and everyday ease.",
+    image: "/banner6.png",
   },
 ];
 
