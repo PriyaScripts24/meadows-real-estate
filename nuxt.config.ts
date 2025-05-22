@@ -56,6 +56,11 @@ export default defineNuxtConfig({
       },
       script: [
         {
+          src: "https://www.google.com/recaptcha/api.js",
+          async: true,
+          defer: true,
+        },
+        {
           src: "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js",
           defer: true,
         },

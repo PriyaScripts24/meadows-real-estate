@@ -8,13 +8,13 @@
         <img
           src="/public/Meadows Logo.png"
           alt="logo"
-          class="w-[100px] sm:w-[150px] md:w-[170px]"
+          class="w-[100px] sm:w-[150px] md:w-[140px]"
         />
       </div>
 
       <!-- Desktop Navigation -->
       <nav
-        class="hidden lg:flex space-x-6 xl:space-x-12 2xl:space-x-20 text-sm lg:text-base xl:text-lg items-center"
+        class="hidden lg:flex space-x-6 xl:space-x-12 2xl:space-x-20 text-sm lg:text-base xl:text-md items-center"
       >
         <a
           href="#hero"
@@ -46,11 +46,72 @@
         >
 
         <a
-          href="tel:+918939856789"
-          class="bg-[#E92A7B] text-white text-xs sm:text-sm font-semibold shadow-lg px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-[#EE6FA8]"
+          @click="showModal = true"
+          class="cursor-pointer bg-[#E92A7B] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#EE6FA8]"
         >
           Enquire Now
         </a>
+
+        <transition name="fade">
+          <div
+            v-if="showModal"
+            class="fixed inset-0 bg-[#3E2D7E] bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50"
+          >
+            <div
+              class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-6"
+            >
+              <!-- Close Button -->
+              <button
+                @click="showModal = false"
+                class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+              >
+                &times;
+              </button>
+
+              <!-- Form -->
+              <h2
+                class="text-2xl font-semibold mb-4 text-center text-[#3E2D7E]"
+              >
+                Register Now
+              </h2>
+
+              <form class="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  class="w-full px-4 py-3 border rounded-lg"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full px-4 py-3 border rounded-lg"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  class="w-full px-4 py-3 border rounded-lg"
+                />
+                <select class="w-full px-4 py-3 border rounded-lg">
+                  <option>2 BHK - ₹ 70L Onwards</option>
+                  <option>3 BHK - ₹ 85L Onwards</option>
+                </select>
+
+                <!-- reCAPTCHA -->
+                <div
+                  class="g-recaptcha"
+                  data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                ></div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-[#3E2D7E] text-white py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                >
+                  Enquire Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </transition>
       </nav>
     </div>
 
@@ -102,12 +163,51 @@
 </template>
 
 <script setup>
+import { ref, watch, onMounted } from "vue";
+import { useHead } from "#imports";
+
+const showModal = ref(false);
+useHead({
+  script: [
+    {
+      src: "https://www.google.com/recaptcha/api.js",
+      async: true,
+      defer: true,
+    },
+  ],
+});
+const recaptchaLoaded = ref(false);
+watch(showModal, (newVal) => {
+  if (newVal) {
+    // Delay to ensure DOM is ready before rendering captcha
+    setTimeout(() => {
+      if (window.grecaptcha && !recaptchaLoaded.value) {
+        window.grecaptcha.render("recaptcha-container", {
+          sitekey: "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
+        });
+        recaptchaLoaded.value = true;
+      }
+    }, 100); // short delay to allow modal to appear in DOM
+  } else {
+    recaptchaLoaded.value = false;
+  }
+});
+
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .nav-link {
   position: relative;
   padding-bottom: 4px;

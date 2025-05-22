@@ -5,119 +5,78 @@
       <Header />
     </section>
     <!-- hero section -->
-
-    <section id="hero" class="relative min-h-screen overflow-hidden mt-14">
-      <!-- Desktop & Laptop View (lg and up) -->
-      <div class="hidden lg:block relative w-full h-screen">
-        <!-- Title & Subtitle -->
-        <div
-          data-aos="fade-right"
-          data-aos-delay="200"
-          class="absolute left-0 w-[30%] h-[28.6%] flex p-2"
-        >
-          <!-- <div
-            class="flex flex-col gap-4 w-full items-start justify-start px-4"
+    <section id="hero" class="relative w-full overflow-hidden mt-14">
+      <div class="hidden lg:block w-full h-full">
+        <div class="absolute inset-0 w-full z-0">
+          <Swiper
+            :modules="[Autoplay]"
+            :autoplay="{ delay: 4200, disableOnInteraction: false }"
+            :loop="true"
+            class="w-full h-full"
           >
-            <h2 class="text-[#3E2D7E] text-xl 2xl:text-2xl font-semibold">
-              {{ slides[currentIndex].title }}
-            </h2>
-            <h2 class="text-black text-xl 2xl:text-2xl font-semibold">
-              {{ slides[currentIndex].subtitle }}
-            </h2>
-          </div> -->
+            <SwiperSlide v-for="(slide, index) in slides" :key="index">
+              <img :src="slide.image" class="w-full h-full object-fill" />
+            </SwiperSlide>
+          </Swiper>
+          <div class="absolute inset-0 z-10"></div>
         </div>
 
-        <!-- Swiper for desktop -->
-        <Swiper
-          :modules="[Autoplay]"
-          :autoplay="{ delay: 2200, disableOnInteraction: false }"
-          :loop="true"
-          class="absolute inset-0 z-0 w-full h-full"
-          @slideChange="onSlideChange"
-        >
-          <SwiperSlide v-for="(slide, index) in slides" :key="index">
-            <img :src="slide.image" class="w-full object-cover" />
-          </SwiperSlide>
-        </Swiper>
-      </div>
-
-      <!-- Mobile & Tablet View (below lg) -->
-      <div class="block lg:hidden relative w-full h-screen">
-        <Swiper
-          :modules="[Autoplay]"
-          :autoplay="{ delay: 2200, disableOnInteraction: false }"
-          :loop="true"
-          class="absolute inset-0 z-0 w-full"
-        >
-          <SwiperSlide v-for="(image, index) in mobileImages" :key="index">
-            <img :src="image" class="w-full overflow-hidden" />
-          </SwiperSlide>
-        </Swiper>
-      </div>
-
-      <div class="absolute inset-0 bg-transparent z-10"></div>
-
-      <div
-        class="relative z-20 w-full flex flex-col items-center justify-between gap-8 px-4 md:px-8 lg:px-0 md:flex-col"
-      >
         <div
-          class="w-full flex flex-col lg:flex-row items-start justify-between lg:gap-10 -mt-94 md:mt-10 px-4 md:px-8 lg:-top-[830px] lg:px-4 lg:absolute xl:-top-[870px]"
+          class="relative z-20 flex items-center justify-between max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 min-h-screen"
         >
-          <!-- Title and Subtitle for Desktop (left side) -->
           <div
+            class="w-full lg:w-3/4 text-white text-center lg:text-left mb-8 lg:mb-0"
             data-aos="fade-right"
-            data-aos-delay="200"
-            class="hidden lg:flex flex-col gap-4 w-full lg:w-[40%] px-4"
           >
-            <h2 class="text-[#3E2D7E] text-xl 2xl:text-2xl font-semibold">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-white">
               {{ slides[currentIndex].title }}
-            </h2>
-            <h2 class="text-black text-xl 2xl:text-2xl font-semibold">
+            </h1>
+            <p class="text-lg md:text-xl font-medium">
               {{ slides[currentIndex].subtitle }}
-            </h2>
+            </p>
           </div>
 
-          <!-- Register Form (right side in lg, below in mobile) -->
           <div
+            class="absolute right-0 top-1/2 -translate-y-1/2 w-1/4 pr-8"
             data-aos="fade-left"
-            data-aos-delay="200"
-            class="w-full lg:w-1/3"
           >
             <div
-              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-2 md:p-6 lg:p-8 md:px-20 lg:px-5 xl:px-8"
+              class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-6 ml-auto max-w-[400px]"
             >
               <h2
                 class="text-2xl font-semibold mb-6 text-center text-[#3E2D7E]"
               >
                 Register now
               </h2>
-              <form @submit.prevent="handleSubmit" class="space-y-4">
+              <form
+                @submit.prevent="handleSubmit"
+                class="space-y-4 flex flex-col items-center"
+              >
                 <input
                   type="text"
                   placeholder="Full Name"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
                 />
                 <input
                   type="email"
-                  placeholder="Email Address"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  placeholder="Email"
+                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
                 />
                 <input
-                  type="tel"
-                  placeholder="Phone Number"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  type="text"
+                  placeholder="Phone"
+                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
                 />
                 <select
                   name="villa"
-                  id="land"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
                 >
                   <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                   <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
                 </select>
                 <div
-                  class="g-recaptcha"
-                  data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                  class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
+                  data-sitekey="YOUR_CORRECT_SITE_KEY_HERE"
                 ></div>
                 <button
                   type="submit"
@@ -130,27 +89,94 @@
           </div>
         </div>
       </div>
+
+      <div class="block lg:hidden">
+        <div class="w-full relative h-[60vh] sm:h-[70vh]">
+          <img
+            :src="
+              slides[currentIndex].mobileImage || slides[currentIndex].image
+            "
+            class="w-full object-fill"
+          />
+          <div class="absolute inset-0 z-10"></div>
+        </div>
+
+        <div class="w-full text-center px-4 py-8 text-white">
+          <h1 class="text-3xl md:text-4xl font-bold mb-4">
+            {{ slides[currentIndex].title }}
+          </h1>
+          <p class="text-lg md:text-xl font-medium">
+            {{ slides[currentIndex].subtitle }}
+          </p>
+        </div>
+
+        <div class="w-full px-4 sm:px-6 py-8">
+          <div
+            class="w-full max-w-lg mx-auto bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-6"
+          >
+            <h2 class="text-2xl font-semibold mb-6 text-center text-[#3E2D7E]">
+              Register now
+            </h2>
+            <form
+              @submit.prevent="handleSubmit"
+              class="space-y-4 flex flex-col items-center"
+            >
+              <input
+                type="text"
+                placeholder="Full Name"
+                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <input
+                type="text"
+                placeholder="Phone"
+                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              />
+              <select
+                name="villa"
+                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+              >
+                <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
+                <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
+              </select>
+              <div
+                class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
+                data-sitekey="YOUR_CORRECT_SITE_KEY_HERE"
+              ></div>
+              <button
+                type="submit"
+                class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+              >
+                Enquire Now
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
-
     <!-- about section -->
-
     <section
       id="about"
-      class="flex flex-col-reverse md:flex-col items-center px-10 py-10 gap-10 md:mt-5 lg:-mt-[330px] lg:flex-row xl:-mt-[210px] 2xl:mt-0 2xl:px-20 bg-[#E5E1ED]"
+      class="flex flex-col-reverse md:flex-col items-center px-4 py-8 gap-8 md:px-10 md:py-10 lg:flex-row 2xl:px-20 bg-[#E5E1ED]"
     >
-      <!-- Text Content Section -->
       <div
-        class="w-full flex flex-col gap-4"
-        data-aos="fade-left"
-        data-aos-delay="200"
+        class="w-full lg:w-1/2 flex flex-col gap-4"
+        data-aos="fade-right"
+        data-aos-delay="100"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
       >
         <h2 class="font-semibold text-2xl md:text-3xl text-[#3E2D7E]">
           Your Quiet Corner in a Vibrant City
         </h2>
-        <p class="text-gray-600 text-base md:text-lg">
+        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
           2 & 3 BHK Premium Apartments in Madambakkam Surrounded by Nature.
         </p>
-        <p class="text-gray-600 text-base md:text-lg">
+        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
           ATH Meadows is a premium residential apartment project nestled in the
           calm and green surroundings of Madambakkam, Chennai. Designed for
           those who value a blend of nature and modern comfort, these 2 & 3 BHK
@@ -161,8 +187,13 @@
         </p>
       </div>
 
-      <!-- Image Section -->
-      <div class="w-full" data-aos="fade-right" data-aos-delay="200">
+      <div
+        class="w-full lg:w-1/2"
+        data-aos="fade-left"
+        data-aos-delay="100"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
+      >
         <img
           src="/about.jpg"
           alt="ATH Meadows apartments"
@@ -176,18 +207,24 @@
       <div
         class="container mx-auto px-4"
         data-aos="fade-down"
-        data-aos-delay="200"
+        data-aos-delay="1000"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
       >
         <div
-          class="flex flex-col-reverse md:flex xl:flex-row-reverse lg:gap-10 items-center justify-between gap-10 2xl:gap-40"
+          class="flex flex-col md:flex xl:flex-row lg:gap-10 items-center justify-between gap-10 2xl:gap-40 mt-6"
         >
           <!-- Text Section -->
           <div
             class="text-center md:text-left"
             data-aos="fade-left"
-            data-aos-delay="200"
+            data-aos-delay="1000"
+            data-aos-duration="400"
+            data-aos-easing="ease-in-out"
           >
-            <h2 class="text-2xl md:text-xl font-semibold text-[#3E2D7E]">
+            <h2
+              class="text-2xl md:text-lg lg:text-xl font-semibold text-[#3E2D7E]"
+            >
               Your Canvas,<br />Your Masterpiece.
             </h2>
           </div>
@@ -207,12 +244,14 @@
               <img
                 :src="feature.image"
                 :alt="feature.title"
-                class="h-28 md:h-40 mb-4 object-contain"
+                class="h-28 md:h-30 lg:h-40 mb-4 object-contain"
               />
               <p
-                class="text-sm md:text-md text-[#EE6FA8] leading-snug"
+                class="text-sm md:text-[10px] lg:text-md text-[#EE6FA8] leading-snug"
                 data-aos="fade-right"
-                data-aos-delay="200"
+                data-aos-delay="1000"
+                data-aos-duration="400"
+                data-aos-easing="ease-in-out"
               >
                 {{ feature.title }}
               </p>
@@ -292,28 +331,35 @@
     </section> -->
     <section class="py-10 px-4 md:px-10 2xl:px-20 2xl:mt-4">
       <h2
-        class="text-3xl font-semibold text-[#3E2D7E] text-center mb-6"
+        class="text-2xl font-semibold text-[#3E2D7E] text-center mb-6"
         data-aos="fade-left"
-        data-aos-delay="200"
+        data-aos-delay="1000"
+        data-aos-duration="400"
+        data-aos-easing="ease-in-out"
       >
         Amenities
       </h2>
+
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4 px-10 md:px-10 xl:px-20"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 px-10 md:px-10 xl:px-32 items-center justify-items-center"
       >
         <div
-          data-aos="fade-left"
-          data-aos-delay="200"
           v-for="(amenity, index) in amenities"
           :key="index"
-          class="flex items-center gap-4 border border-none rounded-4xl shadow-md hover:shadow-lg transition duration-3000 ease-in-out"
+          data-aos="fade-left"
+          data-aos-delay="1000"
+          data-aos-duration="400"
+          data-aos-easing="ease-in-out"
+          class="flex flex-col items-center gap-2 px-4 py-4 w-[200px] h-[150px] bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
         >
           <img
             :src="amenity.image"
             :alt="amenity.title"
             class="w-[60px] h-[60px]"
           />
-          <p class="font-semibold text-md">
+
+          <!-- Always visible title -->
+          <p class="font-semibold text-sm text-center">
             {{ amenity.title }}
           </p>
         </div>
@@ -321,45 +367,48 @@
     </section>
     <!-- Location advantage with map -->
 
-    <section class="lg:px-20 px-10 py-10 2xl:px-20 2xl:mt-4 bg-[#E5E1ED]">
+    <section
+      class="lg:px-20 px-10 py-10 2xl:px-20 2xl:mt-4 bg-[#E5E1ED]"
+      id="location"
+    >
       <div
-        class="flex flex-col md:flex-col justify-between items-center xl:gap-10 lg:gap-15 md:gap-10 gap-10 2xl:px-40 2xl:gap-0 lg:flex-row"
+        class="flex flex-col md:flex-col justify-between items-center xl:gap-1 lg:gap-15 md:gap-10 gap-10 2xl:px-40 2xl:gap-0 lg:flex-row"
       >
         <!-- Text Block -->
         <div
           class="w-full xl:w-1/3 space-y-4 2xl:w-1/2"
           data-aos="fade-right"
-          data-aos-delay="200"
+          data-aos-delay="10"
+          data-aos-duration="40"
+          data-aos-easing="ease-in-out"
         >
           <h2
-            class="text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-[#3E2D7E]"
+            class="text-xl md:text-2xl lg:text-2xl xl:text-2xl font-semibold text-[#3E2D7E]"
           >
             The Peace You Seek Is Just a Step Away
           </h2>
-          <p class="text-lg text-gray-700">
+          <p class="text-md text-gray-700">
             Tucked in the heart of Madambakkam, ATH Meadows offers a life woven
             with calm, comfort and a quiet connection to nature. With
             thoughtfully crafted spaces and a community built for serenity, this
             is more than just a home. It is a gentle return to everything you
             love.
           </p>
-          <h4 class="text-xl font-semibold text-[#3E2D7E]">
-            Register now to experience it first-hand.
-          </h4>
-          <p class="text-lg text-gray-700">
-            A peaceful way of living is waiting. Let it begin with you.
-          </p>
         </div>
 
         <!-- Image Block -->
         <div
-          class="w-[350px] md:w-[600px] lg:w-full xl:w-[700px] 2xl:w-1/2 bg-white rounded-2xl shadow-lg"
+          class="w-[350px] md:w-[600px] lg:w-full xl:w-[500px] 2xl:w-1/2 bg-white rounded-2xl shadow-lg"
           data-aos="fade-left"
-          data-aos-delay="200"
+          data-aos-delay="10"
+          data-aos-duration="40"
+          data-aos-easing="ease-in-out"
         >
           <img
             data-aos="fade-left"
-            data-aos-delay="200"
+            data-aos-delay="1000"
+            data-aos-duration="400"
+            data-aos-easing="ease-in-out"
             src="/map.png"
             alt="map"
             class="w-full h-auto rounded-xl shadow-md object-cover object-center p-5"
@@ -377,58 +426,36 @@
       <div class="bg-black/40 absolute inset-0 z-0"></div>
 
       <div
-        class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-8"
+        class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-1"
       >
         <div
           class="lg:w-1/2 text-white space-y-6 px-4"
           data-aos="fade-right"
-          data-aos-delay="200"
+          data-aos-delay="1000"
+          data-aos-duration="400"
+          data-aos-easing="ease-in-out"
         >
-          <div class="">
-            <h2 class="text-xl md:text-4xl font-bold leading-tight">
-              19+ years of experience <br />in creating exceptional living
-              spaces
-            </h2>
-          </div>
-
-          <p class="text-sm md:text-base text-gray-300">
-            Asset Tree Homes consistently delivers superior quality homes,
-            creating lasting legacies that stand the test of time.
+          <h4 class="md:text-4xl text-2xl font-semibold text-white">
+            Register now to experience it first-hand.
+          </h4>
+          <p class="text-md text-gray-100">
+            A peaceful way of living is waiting. Let it begin with you.
           </p>
-
-          <div
-            class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 text-center bg-white/90 text-[#3E2D7E] p-6 rounded-lg px-3"
-            data-aos="flip-left"
-            data-aos-delay="200"
-          >
-            <div>
-              <p class="text-3xl font-bold">{{ years }}+</p>
-              <p class="text-sm">Years of Excellence</p>
-            </div>
-            <div>
-              <p class="text-3xl font-bold">{{ projects }}+</p>
-              <p class="text-sm">Completed Projects</p>
-            </div>
-            <div>
-              <p class="text-3xl font-bold">{{ homes }}+</p>
-              <p class="text-sm">Happy Homes</p>
-            </div>
-            <div>
-              <p class="text-3xl font-bold">{{ staff }}+</p>
-              <p class="text-sm">Experienced Personnel</p>
-            </div>
-          </div>
         </div>
 
         <div
           class="w-full md:w-1/2 rounded-2xl shadow-2xl text-black"
-          data-aos="flip-right"
-          data-aos-delay="200"
+          data-aos="fade-right"
+          data-aos-delay="1000"
+          data-aos-duration="400"
+          data-aos-easing="ease-in-out"
         >
           <div
             class="w-full lg:w-[70%] md:min-w-[20px] max-w-[400px] ml-auto md:mt-5"
             data-aos="fade-left"
-            data-aos-delay="200"
+            data-aos-delay="1000"
+            data-aos-duration="400"
+            data-aos-easing="ease-in-out"
           >
             <div
               class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8"
@@ -558,7 +585,10 @@ function animateCount(refVar, target, duration = 300000) {
   requestAnimationFrame(step);
 }
 onMounted(() => {
-  AOS.init();
+  AOS.init({
+    once: true, // animate only once
+    duration: 600, // default duration, can be overridden in data-aos-duration
+  });
   animateCount(years, 20, 800); // 800ms duration
   animateCount(projects, 100, 800);
   animateCount(homes, 1000, 800);
@@ -610,24 +640,13 @@ const features = [
   },
 ];
 </script>
-<!-- <style lang="postcss" scoped>
-#type h2 {
-  width: 20ch;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: typing 2s steps(30) infinite alternate;
-}
-.form-input {
-  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E];
-}
-
-@keyframes typing {
-  from {
-    width: 0ch;
-  }
-  to {
-    width: 30ch;
+<style scoped>
+@media (max-width: 480px) {
+  .g-recaptcha iframe {
+    transform: scale(0.8);
+    transform-origin: 0 0;
+    width: 304px; /* keep original width for iframe */
+    height: 78px; /* keep original height */
   }
 }
-</style> -->
+</style>
