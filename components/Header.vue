@@ -14,7 +14,7 @@
 
       <!-- Desktop Navigation -->
       <nav
-        class="hidden lg:flex space-x-6 xl:space-x-12 2xl:space-x-20 text-sm lg:text-base xl:text-md items-center"
+        class="hidden lg:flex space-x-6 xl:space-x-12 2xl:space-x-20 text-sm lg:text-base xl:text-sm items-center"
       >
         <a
           href="#hero"
@@ -47,7 +47,7 @@
 
         <a
           @click="showModal = true"
-          class="cursor-pointer bg-[#E92A7B] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#EE6FA8]"
+          class="cursor-pointer bg-[#E92A7B] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#EE6FA8] text-[10px]"
         >
           Enquire Now
         </a>

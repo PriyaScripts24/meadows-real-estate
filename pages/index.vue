@@ -358,7 +358,7 @@
       </h2>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-4 px-10 md:px-10 xl:px-32 items-center justify-items-center"
+        class="flex flex-wrap gap-6 mt-4 px-10 md:px-10 xl:px-32 items-center justify-center"
       >
         <div
           v-for="(amenity, index) in amenities"
