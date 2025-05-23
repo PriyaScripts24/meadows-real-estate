@@ -15,7 +15,13 @@
             class="w-full h-full"
           >
             <SwiperSlide v-for="(slide, index) in slides" :key="index">
-              <img :src="slide.image" class="w-full h-full object-fill" />
+              <img
+                :src="slide.image"
+                class="w-full h-full object-fill"
+                data-aos-delay="2000"
+                data-aos-duration="400"
+                data-aos-easing="ease-in-out"
+              />
             </SwiperSlide>
           </Swiper>
           <div class="absolute inset-0 z-10"></div>
@@ -24,9 +30,12 @@
         <div
           class="relative z-20 flex items-center justify-between max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 min-h-screen"
         >
-          <div
+          <!-- <div
             class="w-full lg:w-3/4 text-white text-center lg:text-left mb-8 lg:mb-0"
             data-aos="fade-right"
+            data-aos-delay="2000"
+            data-aos-duration="400"
+            data-aos-easing="ease-in-out"
           >
             <h1 class="text-3xl md:text-4xl font-bold mb-4 text-white">
               {{ slides[currentIndex].title }}
@@ -34,11 +43,14 @@
             <p class="text-lg md:text-xl font-medium">
               {{ slides[currentIndex].subtitle }}
             </p>
-          </div>
+          </div> -->
 
           <div
-            class="absolute right-0 top-1/2 -translate-y-1/2 w-1/4 pr-8"
+            class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 pr-8"
             data-aos="fade-left"
+            data-aos-delay="2000"
+            data-aos-duration="400"
+            data-aos-easing="ease-in-out"
           >
             <div
               class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-6 ml-auto max-w-[400px]"
@@ -74,10 +86,13 @@
                   <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                   <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
                 </select>
-                <div
-                  class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
-                  data-sitekey="YOUR_CORRECT_SITE_KEY_HERE"
-                ></div>
+                <div class="w-[400px] overflow-hidden">
+                  <div
+                    class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
+                    data-sitekey="YOUR_CORRECT_SITE_KEY_HERE"
+                  ></div>
+                </div>
+
                 <button
                   type="submit"
                   class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
@@ -110,43 +125,45 @@
           </p>
         </div>
 
-        <div class="w-full px-4 sm:px-6 py-8">
+        <div class="w-full px-4 sm:px-6 lg:py-8">
           <div
-            class="w-full max-w-lg mx-auto bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-xl p-6"
+            class="lg:w-full md:w-[400px] -mt-114 md:ml-[160px] lg:ml-0 bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8 md:-mt-84"
           >
-            <h2 class="text-2xl font-semibold mb-6 text-center text-[#3E2D7E]">
+            <h2
+              class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
+            >
               Register now
             </h2>
-            <form
-              @submit.prevent="handleSubmit"
-              class="space-y-4 flex flex-col items-center"
-            >
+            <form class="space-y-4">
               <input
                 type="text"
                 placeholder="Full Name"
-                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
               />
               <input
                 type="email"
-                placeholder="Email"
-                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                placeholder="Email Address"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
               />
               <input
-                type="text"
-                placeholder="Phone"
-                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                type="tel"
+                placeholder="Phone Number"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
               />
               <select
                 name="villa"
-                class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                id="land"
+                placeholder="Select Preference"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
               >
                 <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                 <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
               </select>
               <div
-                class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
-                data-sitekey="YOUR_CORRECT_SITE_KEY_HERE"
+                class="g-recaptcha my-4"
+                data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
               ></div>
+
               <button
                 type="submit"
                 class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
@@ -166,17 +183,17 @@
       <div
         class="w-full lg:w-1/2 flex flex-col gap-4"
         data-aos="fade-right"
-        data-aos-delay="100"
+        data-aos-delay="1500"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >
-        <h2 class="font-semibold text-2xl md:text-3xl text-[#3E2D7E]">
+        <h2 class="font-semibold text-2xl md:text-2xl text-[#3E2D7E]">
           Your Quiet Corner in a Vibrant City
         </h2>
-        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+        <p class="text-gray-600 text-base md:text-md leading-relaxed">
           2 & 3 BHK Premium Apartments in Madambakkam Surrounded by Nature.
         </p>
-        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+        <p class="text-gray-600 text-base md:text-md leading-relaxed">
           ATH Meadows is a premium residential apartment project nestled in the
           calm and green surroundings of Madambakkam, Chennai. Designed for
           those who value a blend of nature and modern comfort, these 2 & 3 BHK
@@ -190,7 +207,7 @@
       <div
         class="w-full lg:w-1/2"
         data-aos="fade-left"
-        data-aos-delay="100"
+        data-aos-delay="1500"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >
@@ -207,7 +224,7 @@
       <div
         class="container mx-auto px-4"
         data-aos="fade-down"
-        data-aos-delay="1000"
+        data-aos-delay="2000"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >
@@ -218,12 +235,12 @@
           <div
             class="text-center md:text-left"
             data-aos="fade-left"
-            data-aos-delay="1000"
+            data-aos-delay="2000"
             data-aos-duration="400"
             data-aos-easing="ease-in-out"
           >
             <h2
-              class="text-2xl md:text-lg lg:text-xl font-semibold text-[#3E2D7E]"
+              class="text-2xl md:text-lg lg:text-lg font-semibold text-[#3E2D7E]"
             >
               Your Canvas,<br />Your Masterpiece.
             </h2>
@@ -333,7 +350,7 @@
       <h2
         class="text-2xl font-semibold text-[#3E2D7E] text-center mb-6"
         data-aos="fade-left"
-        data-aos-delay="1000"
+        data-aos-delay="2000"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >
@@ -347,10 +364,10 @@
           v-for="(amenity, index) in amenities"
           :key="index"
           data-aos="fade-left"
-          data-aos-delay="1000"
+          data-aos-delay="1500"
           data-aos-duration="400"
           data-aos-easing="ease-in-out"
-          class="flex flex-col items-center gap-2 px-4 py-4 w-[200px] h-[150px] bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
+          class="flex flex-col items-center gap-2 px-4 py-4 w-[200px] h-[150px] bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out cursor-pointer"
         >
           <img
             :src="amenity.image"
@@ -435,7 +452,7 @@
           data-aos-duration="400"
           data-aos-easing="ease-in-out"
         >
-          <h4 class="md:text-4xl text-2xl font-semibold text-white">
+          <h4 class="md:text-5xl text-2xl font-semibold text-white">
             Register now to experience it first-hand.
           </h4>
           <p class="text-md text-gray-100">
