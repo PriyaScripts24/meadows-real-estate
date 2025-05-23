@@ -54,8 +54,8 @@
 
         <transition name="fade">
           <div
-            v-if="showModal"
-            class="fixed inset-0 bg-[#3E2D7E] bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50"
+            v-show="showModal"
+            class="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50"
           >
             <div
               class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-6"
@@ -75,7 +75,7 @@
                 Register Now
               </h2>
 
-              <form class="space-y-4">
+              <form @submit.prevent="handleSubmit" class="space-y-4">
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -97,11 +97,12 @@
                 </select>
 
                 <!-- reCAPTCHA -->
-                <div
-                  class="g-recaptcha"
-                  data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
-                ></div>
-
+                <div class="w-[400px] overflow-hidden">
+                  <div
+                    class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
+                    data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                  ></div>
+                </div>
                 <button
                   type="submit"
                   class="w-full bg-[#3E2D7E] text-white py-3 rounded-lg hover:bg-[#E92A7B] transition"
@@ -170,28 +171,41 @@ const showModal = ref(false);
 useHead({
   script: [
     {
-      src: "https://www.google.com/recaptcha/api.js",
+      src: "https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY",
       async: true,
       defer: true,
     },
   ],
 });
-const recaptchaLoaded = ref(false);
-watch(showModal, (newVal) => {
-  if (newVal) {
-    // Delay to ensure DOM is ready before rendering captcha
-    setTimeout(() => {
-      if (window.grecaptcha && !recaptchaLoaded.value) {
-        window.grecaptcha.render("recaptcha-container", {
-          sitekey: "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
-        });
-        recaptchaLoaded.value = true;
-      }
-    }, 100); // short delay to allow modal to appear in DOM
-  } else {
-    recaptchaLoaded.value = false;
+
+onMounted(() => {
+  // Initialize AOS
+  if (typeof window !== "undefined") {
+    import("aos").then((AOS) => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    });
   }
 });
+const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  const token = await window.grecaptcha.execute(
+    "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
+    {
+      action: "submit",
+    }
+  );
+
+  // Send this token to your server for verification
+  console.log("reCAPTCHA Token:", token);
+
+  // You can now submit the form along with the token
+};
+
+// Scroll to top function
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -199,6 +213,14 @@ function scrollToTop() {
 </script>
 
 <style scoped>
+@media (max-width: 480px) {
+  .g-recaptcha iframe {
+    transform: scale(0.8);
+    transform-origin: 0 0;
+    width: 304px; /* keep original width for iframe */
+    height: 78px; /* keep original height */
+  }
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;

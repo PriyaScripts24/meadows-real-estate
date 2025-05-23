@@ -89,7 +89,7 @@
                 <div class="w-[400px] overflow-hidden">
                   <div
                     class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
-                    data-sitekey="YOUR_CORRECT_SITE_KEY_HERE"
+                    data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
                   ></div>
                 </div>
 
@@ -134,7 +134,7 @@
             >
               Register now
             </h2>
-            <form class="space-y-4">
+            <form @submit.prevent="handleSubmit" class="space-y-4">
               <input
                 type="text"
                 placeholder="Full Name"
@@ -153,16 +153,18 @@
               <select
                 name="villa"
                 id="land"
-                placeholder="Select Preference"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                v-model="selectedVilla"
               >
+                <option disabled value="">Select Preference</option>
                 <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                 <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
               </select>
-              <div
+
+              <!-- <div
                 class="g-recaptcha my-4"
                 data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
-              ></div>
+              ></div> -->
 
               <button
                 type="submit"
@@ -536,6 +538,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
+const selectedVilla = ref("");
+
 const showModal = ref(false);
 const modules = [Autoplay];
 const amenities = [
@@ -558,6 +562,16 @@ const amenities = [
   { image: "/image16.png", title: "EV Charging Point" },
   { image: "/image17.png", title: "Terrace Sitout" },
 ];
+useHead({
+  script: [
+    {
+      src: "https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY",
+      async: true,
+      defer: true,
+    },
+  ],
+});
+
 const slides = [
   {
     image: "/banner4.png",
@@ -611,28 +625,21 @@ onMounted(() => {
   animateCount(homes, 1000, 800);
   animateCount(staff, 150, 800);
 });
-async function handleSubmit() {
-  const response = grecaptcha.getResponse();
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-  if (!response) {
-    alert("Please verify you're not a robot.");
-    return;
-  }
+  const token = await window.grecaptcha.execute(
+    "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
+    {
+      action: "submit",
+    }
+  );
 
-  const res = await fetch("/api/recaptcha", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token: response }),
-  });
+  // Send this token to your server for verification
+  console.log("reCAPTCHA Token:", token);
 
-  const data = await res.json();
-  if (data.success) {
-    // Proceed with form submission logic
-    alert("Verified! Form submitted.");
-  } else {
-    alert("reCAPTCHA failed.");
-  }
-}
+  // You can now submit the form along with the token
+};
 
 const features = [
   {
