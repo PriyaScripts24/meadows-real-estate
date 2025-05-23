@@ -7,7 +7,7 @@
       <div
         class="flex-1 space-y-6 px-4"
         data-aos="fade-right"
-        data-aos-delay="1000"
+        data-aos-delay="0"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >
@@ -22,7 +22,7 @@
         <div
           class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 bg-white/90 text-[#3E2D7E] p-6 rounded-lg"
           data-aos="fade-left"
-          data-aos-delay="1000"
+          data-aos-delay="0"
           data-aos-duration="400"
           data-aos-easing="ease-in-out"
         >
@@ -49,7 +49,7 @@
       <div
         class="flex-1 space-y-4 px-4"
         data-aos="fade-left"
-        data-aos-delay="1000"
+        data-aos-delay="0"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >
@@ -69,7 +69,7 @@
       <div
         class="flex-1 px-4"
         data-aos="fade-left"
-        data-aos-delay="1000"
+        data-aos-delay="0"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >

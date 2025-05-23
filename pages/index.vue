@@ -10,7 +10,7 @@
         <div class="absolute inset-0 w-full z-0">
           <Swiper
             :modules="[Autoplay]"
-            :autoplay="{ delay: 4200, disableOnInteraction: false }"
+            :autoplay="{ delay: 5200, disableOnInteraction: false }"
             :loop="true"
             class="w-full h-full"
           >
@@ -18,8 +18,7 @@
               <img
                 :src="slide.image"
                 class="w-full h-full object-fill"
-                data-aos-delay="2000"
-                data-aos-duration="400"
+                data-aos-delay="4000"
                 data-aos-easing="ease-in-out"
               />
             </SwiperSlide>
@@ -48,8 +47,8 @@
           <div
             class="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 pr-8"
             data-aos="fade-left"
-            data-aos-delay="2000"
-            data-aos-duration="400"
+            data-aos-delay="100"
+            data-aos-duration="600"
             data-aos-easing="ease-in-out"
           >
             <div
@@ -185,8 +184,8 @@
       <div
         class="w-full lg:w-1/2 flex flex-col gap-4"
         data-aos="fade-right"
-        data-aos-delay="1500"
-        data-aos-duration="400"
+        data-aos-delay="100"
+        data-aos-duration="600"
         data-aos-easing="ease-in-out"
       >
         <h2 class="font-semibold text-2xl md:text-2xl text-[#3E2D7E]">
@@ -209,12 +208,12 @@
       <div
         class="w-full lg:w-1/2"
         data-aos="fade-left"
-        data-aos-delay="1500"
-        data-aos-duration="400"
+        data-aos-delay="100"
+        data-aos-duration="600"
         data-aos-easing="ease-in-out"
       >
         <img
-          src="/about.jpg"
+          src="https://ik.imagekit.io/7ghwwzsjhe/about.jpg?updatedAt=1748014015051"
           alt="ATH Meadows apartments"
           class="w-full h-auto object-cover object-center rounded-xl shadow-md"
         />
@@ -226,8 +225,8 @@
       <div
         class="container mx-auto px-4"
         data-aos="fade-down"
-        data-aos-delay="2000"
-        data-aos-duration="400"
+        data-aos-delay="20"
+        data-aos-duration="600"
         data-aos-easing="ease-in-out"
       >
         <div
@@ -237,8 +236,8 @@
           <div
             class="text-center md:text-left"
             data-aos="fade-left"
-            data-aos-delay="2000"
-            data-aos-duration="400"
+            data-aos-delay="100"
+            data-aos-duration="700"
             data-aos-easing="ease-in-out"
           >
             <h2
@@ -268,7 +267,7 @@
               <p
                 class="text-sm md:text-[10px] lg:text-md text-[#EE6FA8] leading-snug"
                 data-aos="fade-right"
-                data-aos-delay="1000"
+                :data-aos-delay="100 * index"
                 data-aos-duration="400"
                 data-aos-easing="ease-in-out"
               >
@@ -352,8 +351,8 @@
       <h2
         class="text-2xl font-semibold text-[#3E2D7E] text-center mb-6"
         data-aos="fade-left"
-        data-aos-delay="2000"
-        data-aos-duration="400"
+        data-aos-delay="50"
+        data-aos-duration="800"
         data-aos-easing="ease-in-out"
       >
         Amenities
@@ -366,8 +365,8 @@
           v-for="(amenity, index) in amenities"
           :key="index"
           data-aos="fade-left"
-          data-aos-delay="1500"
-          data-aos-duration="400"
+          :data-aos-delay="100 * index"
+          data-aos-duration="600"
           data-aos-easing="ease-in-out"
           class="flex flex-col items-center gap-2 px-4 py-4 w-[200px] h-[150px] bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out cursor-pointer"
         >
@@ -397,8 +396,8 @@
         <div
           class="w-full xl:w-1/3 space-y-4 2xl:w-1/2"
           data-aos="fade-right"
-          data-aos-delay="10"
-          data-aos-duration="40"
+          data-aos-delay="50"
+          data-aos-duration="400"
           data-aos-easing="ease-in-out"
         >
           <h2
@@ -417,20 +416,16 @@
 
         <!-- Image Block -->
         <div
-          class="w-[350px] md:w-[600px] lg:w-full xl:w-[500px] 2xl:w-1/2 bg-white rounded-2xl shadow-lg"
+          class="w-[350px] md:w-[600px] lg:w-full xl:w-[500px] 2xl:w-1/2 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.01] hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
           data-aos="fade-left"
-          data-aos-delay="10"
-          data-aos-duration="40"
+          data-aos-delay="400"
+          data-aos-duration="700"
           data-aos-easing="ease-in-out"
         >
           <img
-            data-aos="fade-left"
-            data-aos-delay="1000"
-            data-aos-duration="400"
-            data-aos-easing="ease-in-out"
-            src="/map.png"
+            src="https://ik.imagekit.io/zqou6c7ei/WhatsApp_Image_2025-05-23_at_21.10.13_216c1971-transformed.jpeg?updatedAt=1748014875268"
             alt="map"
-            class="w-full h-auto rounded-xl shadow-md object-cover object-center p-5"
+            class="w-full h-auto rounded-xl object-cover object-center p-5 transition-all duration-300 ease-in-out"
           />
         </div>
       </div>
@@ -440,7 +435,9 @@
     <section
       id="counter"
       class="relative bg-cover bg-center py-12 px-6 text-white"
-      style="background-image: url('/banner2.png')"
+      style="
+        background-image: url('https://ik.imagekit.io/7ghwwzsjhe/banner2.png?updatedAt=1748013891760');
+      "
     >
       <div class="bg-black/40 absolute inset-0 z-0"></div>
 
@@ -450,9 +447,9 @@
         <div
           class="lg:w-1/2 text-white space-y-6 px-4"
           data-aos="fade-right"
-          data-aos-delay="1000"
-          data-aos-duration="400"
-          data-aos-easing="ease-in-out"
+          data-aos-delay="100"
+          data-aos-duration="600"
+          data-aos-easing="ease-out"
         >
           <h4 class="md:text-5xl text-2xl font-semibold text-white">
             Register now to experience it first-hand.
@@ -464,17 +461,17 @@
 
         <div
           class="w-full md:w-1/2 rounded-2xl shadow-2xl text-black"
-          data-aos="fade-right"
-          data-aos-delay="1000"
-          data-aos-duration="400"
-          data-aos-easing="ease-in-out"
+          data-aos="fade-left"
+          data-aos-delay="200"
+          data-aos-duration="600"
+          data-aos-easing="ease-out"
         >
           <div
             class="w-full lg:w-[70%] md:min-w-[20px] max-w-[400px] ml-auto md:mt-5"
-            data-aos="fade-left"
-            data-aos-delay="1000"
-            data-aos-duration="400"
-            data-aos-easing="ease-in-out"
+            data-aos="fade-up"
+            data-aos-delay="400"
+            data-aos-duration="500"
+            data-aos-easing="ease-out"
           >
             <div
               class="w-full bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8"
@@ -574,13 +571,16 @@ useHead({
 
 const slides = [
   {
-    image: "/banner4.png",
+    image:
+      "https://ik.imagekit.io/7ghwwzsjhe/banner4.png?updatedAt=1748013735481",
   },
   {
-    image: "/banner5.png",
+    image:
+      "https://ik.imagekit.io/7ghwwzsjhe/banner5.png?updatedAt=1748013344380",
   },
   {
-    image: "/banner6.png",
+    image:
+      "https://ik.imagekit.io/7ghwwzsjhe/banner6.png?updatedAt=1748014177953",
   },
 ];
 

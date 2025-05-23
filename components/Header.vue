@@ -92,6 +92,7 @@
                   class="w-full px-4 py-3 border rounded-lg"
                 />
                 <select class="w-full px-4 py-3 border rounded-lg">
+                  <option>Select perference</option>
                   <option>2 BHK - ₹ 70L Onwards</option>
                   <option>3 BHK - ₹ 85L Onwards</option>
                 </select>
@@ -251,10 +252,5 @@ function scrollToTop() {
 
 .nav-link:hover::after {
   width: 100%;
-}
-
-.nav-link:hover {
-  font-weight: 700;
-  font-size: 1.05rem;
 }
 </style>
