@@ -104,8 +104,8 @@
         </div>
       </div>
 
-      <div class="block lg:hidden">
-        <div class="w-full relative h-[60vh] sm:h-[70vh]">
+      <div class="block lg:hidden overflow-hidden">
+        <div class="w-full relative">
           <img
             :src="
               slides[currentIndex].mobileImage || slides[currentIndex].image
@@ -126,7 +126,7 @@
 
         <div class="w-full px-4 sm:px-6 lg:py-8">
           <div
-            class="lg:w-full md:w-[400px] -mt-84 md:ml-[160px] lg:ml-0 bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-3 lg:p-8 md:-mt-84"
+            class="w-full max-w-md mx-auto -mt-20 bg-white bg-opacity-95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-6 lg:p-8"
           >
             <h2
               class="text-2xl md:text-3xl font-semibold mb-6 text-center text-[#3E2D7E]"
@@ -159,11 +159,6 @@
                 <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                 <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
               </select>
-
-              <!-- <div
-                class="g-recaptcha my-4"
-                data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
-              ></div> -->
 
               <button
                 type="submit"
