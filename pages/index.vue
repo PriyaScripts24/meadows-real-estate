@@ -106,12 +106,27 @@
 
       <div class="block lg:hidden overflow-hidden">
         <div class="w-full relative">
-          <img
+          <Swiper
+            :modules="[Autoplay]"
+            :autoplay="{ delay: 5200, disableOnInteraction: false }"
+            :loop="true"
+            class="w-full h-full"
+          >
+            <SwiperSlide v-for="(slide, index) in slides" :key="index">
+              <img
+                :src="slide.image"
+                class="w-full object-fill"
+                data-aos-delay="4000"
+                data-aos-easing="ease-in-out"
+              />
+            </SwiperSlide>
+          </Swiper>
+          <!-- <img
             :src="
               slides[currentIndex].mobileImage || slides[currentIndex].image
             "
             class="w-full object-fill"
-          />
+          /> -->
           <div class="absolute inset-0 z-10"></div>
         </div>
 
@@ -354,7 +369,7 @@
       </h2>
 
       <div
-        class="flex flex-wrap gap-6 mt-4 px-10 md:px-10 xl:px-32 items-center justify-center"
+        class="grid gap-6 mt-4 px-4 md:px-10 xl:px-32 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
       >
         <div
           v-for="(amenity, index) in amenities"
@@ -363,15 +378,13 @@
           :data-aos-delay="100 * index"
           data-aos-duration="600"
           data-aos-easing="ease-in-out"
-          class="flex flex-col items-center gap-2 px-4 py-4 w-[200px] h-[150px] bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out cursor-pointer"
+          class="flex flex-col items-center gap-2 px-4 py-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300 ease-in-out cursor-pointer"
         >
           <img
             :src="amenity.image"
             :alt="amenity.title"
             class="w-[60px] h-[60px]"
           />
-
-          <!-- Always visible title -->
           <p class="font-semibold text-sm text-center">
             {{ amenity.title }}
           </p>
@@ -407,6 +420,20 @@
             is more than just a home. It is a gentle return to everything you
             love.
           </p>
+          <ul
+            class="list-disc list-inside text-sm text-blue-800 space-y-1 pt-2"
+          >
+            <li>Trileaves Group of Schools - 1 Min</li>
+            <li>Zion Matriculation Hr. Sec. School - 1 Min</li>
+            <li>Alwin Memorial Public School - 2 Mins</li>
+            <li>Bharath University - 3 Mins</li>
+            <li>Kendriya Vidyalaya School - 3 Mins</li>
+            <li>Camp Road Junction - 5 Mins</li>
+            <li>MCC College - 10 Mins</li>
+            <li>Tambaram Railway Station - 10 Mins</li>
+            <li>Annai Teresa Hospital - 15 Mins</li>
+            <li>Hindu Mission Hospital - 15 Mins</li>
+          </ul>
         </div>
 
         <!-- Image Block -->
