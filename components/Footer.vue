@@ -1,26 +1,22 @@
 <template>
   <footer class="bg-[#3E2D7E] text-white py-10 p-4">
     <div
-      class="max-w-7xl mx-auto flex flex-col md:flex-col flex-wrap justify-between gap-8 lg:flex-row"
+      class="max-w-6xl mx-auto flex flex-col md:flex-col flex-wrap justify-center lg:flex-row"
     >
-      <!-- Experience & Counter -->
       <div
-        class="flex-1 space-y-6 px-4"
-        data-aos="fade-right"
+        class="flex-1 space-y-4 px-4"
+        data-aos="fade-left"
         data-aos-delay="0"
         data-aos-duration="400"
         data-aos-easing="ease-in-out"
       >
-        <h2 class="text-xl md:text-xl font-bold leading-tight">
-          19+ years of experience <br />in creating exceptional living spaces
-        </h2>
-        <p class="text-sm text-gray-300">
-          Asset Tree Homes consistently delivers superior quality homes,
-          creating lasting legacies that stand the test of time.
-        </p>
-
+        <img
+          src="/public/assettreehomes.png"
+          alt="Asset Tree Homes"
+          class="w-60 py-1"
+        />
         <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 bg-white/90 text-[#3E2D7E] p-6 rounded-lg"
+          class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 bg-white/90 text-[#3E2D7E] p-6 rounded-lg md:w-[400px]"
           data-aos="fade-left"
           data-aos-delay="0"
           data-aos-duration="400"
@@ -43,31 +39,19 @@
             <p class="text-[10px]">Experienced Personnel</p>
           </div>
         </div>
-      </div>
-
-      <!-- Logo & Address -->
-      <div
-        class="flex-1 space-y-4 px-4"
-        data-aos="fade-left"
-        data-aos-delay="0"
-        data-aos-duration="400"
-        data-aos-easing="ease-in-out"
-      >
-        <img
-          src="/public/assettreehomes.png"
-          alt="Asset Tree Homes"
-          class="w-60 py-1"
-        />
         <p class="text-sm">
           NO-20, 2nd Floor, Zion Complex,<br />
           Pammal Main Road, Pammal, Chennai - 600075.
         </p>
         <p class="text-[10px]">© 2025 Asset Tree Homes</p>
       </div>
+      <!-- Experience & Counter -->
+
+      <!-- Logo & Address -->
 
       <!-- Quick Links -->
       <div
-        class="flex-1 px-4"
+        class="flex-1 px-4 mt-4 lg:mt-0"
         data-aos="fade-left"
         data-aos-delay="0"
         data-aos-duration="400"
