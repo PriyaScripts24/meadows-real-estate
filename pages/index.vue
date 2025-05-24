@@ -82,6 +82,7 @@
                   name="villa"
                   class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
                 >
+                  <option value="select">Select Preference</option>
                   <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                   <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
                 </select>
@@ -525,6 +526,7 @@
                   placeholder="Select Preference"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
                 >
+                  <option value="select">Select Preference</option>
                   <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
                   <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
                 </select>

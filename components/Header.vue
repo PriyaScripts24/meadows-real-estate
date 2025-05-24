@@ -169,18 +169,31 @@ import { ref, watch, onMounted } from "vue";
 import { useHead } from "#imports";
 
 const showModal = ref(false);
+
+// Disable background scroll when modal is open
+watch(showModal, (val) => {
+  if (typeof document !== "undefined") {
+    if (val) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }
+});
+
+// Add reCAPTCHA script
 useHead({
   script: [
     {
-      src: "https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY",
+      src: "https://www.google.com/recaptcha/api.js?render=6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
       async: true,
       defer: true,
     },
   ],
 });
 
+// AOS animation init
 onMounted(() => {
-  // Initialize AOS
   if (typeof window !== "undefined") {
     import("aos").then((AOS) => {
       AOS.init({
@@ -190,24 +203,22 @@ onMounted(() => {
     });
   }
 });
+
+// Form submit with reCAPTCHA
 const handleSubmit = async (event) => {
   event.preventDefault();
 
   const token = await window.grecaptcha.execute(
     "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
-    {
-      action: "submit",
-    }
+    { action: "submit" }
   );
 
-  // Send this token to your server for verification
   console.log("reCAPTCHA Token:", token);
 
-  // You can now submit the form along with the token
+  // You can now send the token along with form data
 };
 
-// Scroll to top function
-
+// Scroll to top
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
