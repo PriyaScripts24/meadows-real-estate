@@ -246,8 +246,8 @@ const handleSubmit = async (event) => {
   }
 
   // --- reCAPTCHA v3 token ---
-  const token = await window.grecaptcha.execute(SITE_KEY, { action: "submit" });
-  console.log("reCAPTCHA Token:", token);
+  // const token = await window.grecaptcha.execute(SITE_KEY, { action: "submit" });
+  // console.log("reCAPTCHA Token:", token);
 
   // --- Build API URL ---
   const url = `https://app.sell.do/api/leads/create?api_key=${API_KEY}&sell_do[form][lead][name]=${encodeURIComponent(
@@ -258,14 +258,14 @@ const handleSubmit = async (event) => {
     form.value.phone
   )}&sell_do[campaign][srd]=${SRD_ID}&sell_do[form][lead][note]=${encodeURIComponent(
     form.value.preference
-  )}&sell_do[form][lead][captcha_token]=${token}`;
+  )}`;
 
   try {
     const res = await fetch(url, { method: "POST" });
     const data = await res.json();
     console.log("Sell.do Response:", data);
 
-    if (data.success) {
+    if (res.status === 200) {
       alert("Enquiry submitted successfully!");
       form.value = { name: "", email: "", phone: "", preference: "" };
     } else {

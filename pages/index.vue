@@ -59,33 +59,39 @@
               >
                 Register now
               </h2>
-              <form
-                @submit.prevent="handleSubmit"
-                class="space-y-4 flex flex-col items-center"
-              >
+              <form @submit.prevent="handleSubmit" class="space-y-4">
                 <input
+                  v-model="form.name"
                   type="text"
                   placeholder="Full Name"
-                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  class="w-full px-4 py-3 border rounded-lg"
                 />
                 <input
+                  v-model="form.email"
                   type="email"
-                  placeholder="Email"
-                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  placeholder="Email Address"
+                  class="w-full px-4 py-3 border rounded-lg"
                 />
                 <input
-                  type="text"
-                  placeholder="Phone"
-                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  v-model="form.phone"
+                  type="tel"
+                  placeholder="Phone Number"
+                  class="w-full px-4 py-3 border rounded-lg"
                 />
                 <select
-                  name="villa"
-                  class="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  v-model="form.preference"
+                  class="w-full px-4 py-3 border rounded-lg"
                 >
-                  <option value="select">Select Preference</option>
-                  <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
-                  <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
+                  <option value="">Select preference</option>
+                  <option value="2 BHK - ₹ 70L Onwards">
+                    2 BHK - ₹ 70L Onwards
+                  </option>
+                  <option value="3 BHK - ₹ 85L Onwards">
+                    3 BHK - ₹ 85L Onwards
+                  </option>
                 </select>
+
+                <!-- reCAPTCHA -->
                 <div class="w-[400px] overflow-hidden">
                   <div
                     class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
@@ -95,7 +101,7 @@
 
                 <button
                   type="submit"
-                  class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                  class="w-full bg-[#3E2D7E] text-white py-3 rounded-lg hover:bg-[#E92A7B] transition"
                 >
                   Enquire Now
                 </button>
@@ -151,34 +157,47 @@
             </h2>
             <form @submit.prevent="handleSubmit" class="space-y-4">
               <input
+                v-model="form.name"
                 type="text"
                 placeholder="Full Name"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                class="w-full px-4 py-3 border rounded-lg"
               />
               <input
+                v-model="form.email"
                 type="email"
                 placeholder="Email Address"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                class="w-full px-4 py-3 border rounded-lg"
               />
               <input
+                v-model="form.phone"
                 type="tel"
                 placeholder="Phone Number"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                class="w-full px-4 py-3 border rounded-lg"
               />
               <select
-                name="villa"
-                id="land"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
-                v-model="selectedVilla"
+                v-model="form.preference"
+                class="w-full px-4 py-3 border rounded-lg"
               >
-                <option disabled value="">Select Preference</option>
-                <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
-                <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
+                <option value="">Select preference</option>
+                <option value="2 BHK - ₹ 70L Onwards">
+                  2 BHK - ₹ 70L Onwards
+                </option>
+                <option value="3 BHK - ₹ 85L Onwards">
+                  3 BHK - ₹ 85L Onwards
+                </option>
               </select>
+
+              <!-- reCAPTCHA -->
+              <div class="w-full flex justify-center">
+                <div
+                  class="g-recaptcha mt-4"
+                  data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                ></div>
+              </div>
 
               <button
                 type="submit"
-                class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                class="w-full bg-[#3E2D7E] text-white py-3 rounded-lg hover:bg-[#E92A7B] transition"
               >
                 Enquire Now
               </button>
@@ -504,40 +523,49 @@
               >
                 Register now
               </h2>
-              <form class="space-y-4">
+              <form @submit.prevent="handleSubmit" class="space-y-4">
                 <input
+                  v-model="form.name"
                   type="text"
                   placeholder="Full Name"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  class="w-full px-4 py-3 border rounded-lg"
                 />
                 <input
+                  v-model="form.email"
                   type="email"
                   placeholder="Email Address"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  class="w-full px-4 py-3 border rounded-lg"
                 />
                 <input
+                  v-model="form.phone"
                   type="tel"
                   placeholder="Phone Number"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  class="w-full px-4 py-3 border rounded-lg"
                 />
                 <select
-                  name="villa"
-                  id="land"
-                  placeholder="Select Preference"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3E2D7E]"
+                  v-model="form.preference"
+                  class="w-full px-4 py-3 border rounded-lg"
                 >
-                  <option value="select">Select Preference</option>
-                  <option value="2bhk">2 BHK - ₹ 70L Onwards</option>
-                  <option value="3bhk">3 BHK - ₹ 85L Onwards</option>
+                  <option value="">Select preference</option>
+                  <option value="2 BHK - ₹ 70L Onwards">
+                    2 BHK - ₹ 70L Onwards
+                  </option>
+                  <option value="3 BHK - ₹ 85L Onwards">
+                    3 BHK - ₹ 85L Onwards
+                  </option>
                 </select>
-                <div
-                  class="g-recaptcha my-4"
-                  data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
-                ></div>
+
+                <!-- reCAPTCHA -->
+                <div class="w-full flex justify-center">
+                  <div
+                    class="g-recaptcha mt-4"
+                    data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                  ></div>
+                </div>
 
                 <button
                   type="submit"
-                  class="w-full bg-[#3E2D7E] text-white font-semibold py-3 rounded-lg hover:bg-[#E92A7B] transition"
+                  class="w-full bg-[#3E2D7E] text-white py-3 rounded-lg hover:bg-[#E92A7B] transition"
                 >
                   Enquire Now
                 </button>
@@ -583,10 +611,23 @@ const amenities = [
   { image: "/image16.png", title: "EV Charging Point" },
   { image: "/image17.png", title: "Terrace Sitout" },
 ];
+const form = ref({
+  name: "",
+  email: "",
+  phone: "",
+  preference: "",
+});
+const SRD_ID = "68c12371735daf3d6926573e"; // replace with actual
+const API_KEY = "669797f243ea3b8f16296fc028889470"; // replace with actual
+const SITE_KEY = "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"; // your site key
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+const isValidPhone = (phone) => /^[6-9]\d{9}$/.test(phone); // Indian 10-digit numbers
+
 useHead({
   script: [
     {
-      src: "https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY",
+      src: "https://www.google.com/recaptcha/api.js?render=6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
       async: true,
       defer: true,
     },
@@ -652,19 +693,55 @@ onMounted(() => {
 const handleSubmit = async (event) => {
   event.preventDefault();
 
-  const token = await window.grecaptcha.execute(
-    "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
-    {
-      action: "submit",
+  // --- Validation ---
+  if (!form.value.name.trim()) {
+    alert("Please enter your full name");
+    return;
+  }
+  if (!isValidEmail(form.value.email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+  if (!isValidPhone(form.value.phone)) {
+    alert("Please enter a valid 10-digit phone number");
+    return;
+  }
+  if (!form.value.preference) {
+    alert("Please select a preference");
+    return;
+  }
+
+  // --- reCAPTCHA v3 token ---
+  // const token = await window.grecaptcha.execute(SITE_KEY, { action: "submit" });
+  // console.log("reCAPTCHA Token:", token);
+
+  // --- Build API URL ---
+  const url = `https://app.sell.do/api/leads/create?api_key=${API_KEY}&sell_do[form][lead][name]=${encodeURIComponent(
+    form.value.name
+  )}&sell_do[form][lead][email]=${encodeURIComponent(
+    form.value.email
+  )}&sell_do[form][lead][phone]=${encodeURIComponent(
+    form.value.phone
+  )}&sell_do[campaign][srd]=${SRD_ID}&sell_do[form][lead][note]=${encodeURIComponent(
+    form.value.preference
+  )}`;
+
+  try {
+    const res = await fetch(url, { method: "POST" });
+    const data = await res.json();
+    console.log("Sell.do Response:", data);
+
+    if (res.status === 200) {
+      alert("Enquiry submitted successfully!");
+      form.value = { name: "", email: "", phone: "", preference: "" };
+    } else {
+      alert("Something went wrong. Please try again.");
     }
-  );
-
-  // Send this token to your server for verification
-  console.log("reCAPTCHA Token:", token);
-
-  // You can now submit the form along with the token
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Network error, please try again later.");
+  }
 };
-
 const features = [
   {
     title: "49 Exquisitely Designed Premium Residences",
@@ -695,6 +772,18 @@ const features = [
     transform-origin: 0 0;
     width: 304px; /* keep original width for iframe */
     height: 78px; /* keep original height */
+  }
+}
+/* Make reCAPTCHA responsive */
+.g-recaptcha {
+  transform: scale(1);
+  transform-origin: center;
+}
+
+@media (max-width: 480px) {
+  .g-recaptcha {
+    transform: scale(0.85);
+    transform-origin: center;
   }
 }
 </style>
