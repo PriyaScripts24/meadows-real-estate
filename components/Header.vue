@@ -77,33 +77,44 @@
 
               <form @submit.prevent="handleSubmit" class="space-y-4">
                 <input
+                  v-model="form.name"
                   type="text"
                   placeholder="Full Name"
                   class="w-full px-4 py-3 border rounded-lg"
                 />
                 <input
+                  v-model="form.email"
                   type="email"
                   placeholder="Email Address"
                   class="w-full px-4 py-3 border rounded-lg"
                 />
                 <input
+                  v-model="form.phone"
                   type="tel"
                   placeholder="Phone Number"
                   class="w-full px-4 py-3 border rounded-lg"
                 />
-                <select class="w-full px-4 py-3 border rounded-lg">
-                  <option>Select perference</option>
-                  <option>2 BHK - ₹ 70L Onwards</option>
-                  <option>3 BHK - ₹ 85L Onwards</option>
+                <select
+                  v-model="form.preference"
+                  class="w-full px-4 py-3 border rounded-lg"
+                >
+                  <option value="">Select preference</option>
+                  <option value="2 BHK - ₹ 70L Onwards">
+                    2 BHK - ₹ 70L Onwards
+                  </option>
+                  <option value="3 BHK - ₹ 85L Onwards">
+                    3 BHK - ₹ 85L Onwards
+                  </option>
                 </select>
 
                 <!-- reCAPTCHA -->
                 <div class="w-[400px] overflow-hidden">
                   <div
                     class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
-                    data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
+                    data-sitekey="6LcrYcorAAAAAH8dec8n9Z4xCvKy1tuKvIoD59Jc"
                   ></div>
                 </div>
+
                 <button
                   type="submit"
                   class="w-full bg-[#3E2D7E] text-white py-3 rounded-lg hover:bg-[#E92A7B] transition"
@@ -168,24 +179,35 @@
 import { ref, watch, onMounted } from "vue";
 import { useHead } from "#imports";
 
+const form = ref({
+  name: "",
+  email: "",
+  phone: "",
+  preference: "",
+});
+
 const showModal = ref(false);
+const SRD_ID = "68c12371735daf3d6926573e"; // replace with actual
+const API_KEY = "669797f243ea3b8f16296fc028889470"; // replace with actual
+const SITE_KEY = "6LcrYcorAAAAAH8dec8n9Z4xCvKy1tuKvIoD59Jc"; // your site key
+
+// ✅ Validation helpers
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+const isValidPhone = (phone) => /^[6-9]\d{9}$/.test(phone); // Indian 10-digit numbers
 
 // Disable background scroll when modal is open
 watch(showModal, (val) => {
   if (typeof document !== "undefined") {
-    if (val) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
+    document.body.classList.toggle("no-scroll", val);
   }
 });
 
-// Add reCAPTCHA script
+// Load reCAPTCHA script
 useHead({
   script: [
     {
-      src: "https://www.google.com/recaptcha/api.js?render=6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
+      src: `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`,
       async: true,
       defer: true,
     },
@@ -196,26 +218,62 @@ useHead({
 onMounted(() => {
   if (typeof window !== "undefined") {
     import("aos").then((AOS) => {
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
+      AOS.init({ duration: 1000, once: true });
     });
   }
 });
 
-// Form submit with reCAPTCHA
 const handleSubmit = async (event) => {
   event.preventDefault();
 
-  const token = await window.grecaptcha.execute(
-    "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ",
-    { action: "submit" }
-  );
+  // --- Validation ---
+  if (!form.value.name.trim()) {
+    alert("Please enter your full name");
+    return;
+  }
+  if (!isValidEmail(form.value.email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+  if (!isValidPhone(form.value.phone)) {
+    alert("Please enter a valid 10-digit phone number");
+    return;
+  }
+  if (!form.value.preference) {
+    alert("Please select a preference");
+    return;
+  }
 
+  // --- reCAPTCHA v3 token ---
+  const token = await window.grecaptcha.execute(SITE_KEY, { action: "submit" });
   console.log("reCAPTCHA Token:", token);
 
-  // You can now send the token along with form data
+  // --- Build API URL ---
+  const url = `https://app.sell.do/api/leads/create?api_key=${API_KEY}&sell_do[form][lead][name]=${encodeURIComponent(
+    form.value.name
+  )}&sell_do[form][lead][email]=${encodeURIComponent(
+    form.value.email
+  )}&sell_do[form][lead][phone]=${encodeURIComponent(
+    form.value.phone
+  )}&sell_do[campaign][srd]=${SRD_ID}&sell_do[form][lead][note]=${encodeURIComponent(
+    form.value.preference
+  )}&sell_do[form][lead][captcha_token]=${token}`;
+
+  try {
+    const res = await fetch(url, { method: "POST" });
+    const data = await res.json();
+    console.log("Sell.do Response:", data);
+
+    if (data.success) {
+      alert("Enquiry submitted successfully!");
+      form.value = { name: "", email: "", phone: "", preference: "" };
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Network error, please try again later.");
+  }
 };
 
 // Scroll to top
