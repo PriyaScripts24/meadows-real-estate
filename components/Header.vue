@@ -111,7 +111,7 @@
                 <div class="w-[400px] overflow-hidden">
                   <div
                     class="g-recaptcha mt-4 w-full max-w-xs mx-auto"
-                    data-sitekey="6LcrYcorAAAAAH8dec8n9Z4xCvKy1tuKvIoD59Jc"
+                    data-sitekey="6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"
                   ></div>
                 </div>
 
@@ -189,7 +189,7 @@ const form = ref({
 const showModal = ref(false);
 const SRD_ID = "68c12371735daf3d6926573e"; // replace with actual
 const API_KEY = "669797f243ea3b8f16296fc028889470"; // replace with actual
-const SITE_KEY = "6LcrYcorAAAAAH8dec8n9Z4xCvKy1tuKvIoD59Jc"; // your site key
+const SITE_KEY = "6LeT-0ErAAAAAAP8nn2DDYmNhv4vLTkvCIqBQAyQ"; // your site key
 
 // ✅ Validation helpers
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -223,6 +223,7 @@ onMounted(() => {
   }
 });
 
+// ✅ Single handleSubmit
 const handleSubmit = async (event) => {
   event.preventDefault();
 
